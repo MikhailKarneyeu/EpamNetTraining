@@ -1,0 +1,18 @@
+Parkups:
+Bake 1:0,12
+Bake 2:0,3
+Bake 3:1,2
+Bake 4:1,4
+Bake 5:0,3
+Components price:
+Component 1:12
+Component 2:20
+Component 3:9
+Component 4:20
+Component 5:100
+Components calorie:
+Component 1:5
+Component 2:2
+Component 3:8
+Component 4:10
+Component 5:3

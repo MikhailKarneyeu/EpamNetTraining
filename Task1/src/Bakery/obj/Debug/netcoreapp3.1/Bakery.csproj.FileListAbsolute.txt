@@ -1,0 +1,9 @@
+E:\Docs\Git\NetTraining\Task1\src\Bakery\bin\Debug\netcoreapp3.1\Bakery.deps.json
+E:\Docs\Git\NetTraining\Task1\src\Bakery\bin\Debug\netcoreapp3.1\Bakery.dll
+E:\Docs\Git\NetTraining\Task1\src\Bakery\bin\Debug\netcoreapp3.1\Bakery.pdb
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.csprojAssemblyReference.cache
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.AssemblyInfoInputs.cache
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.AssemblyInfo.cs
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.csproj.CoreCompileInputs.cache
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.dll
+E:\Docs\Git\NetTraining\Task1\src\Bakery\obj\Debug\netcoreapp3.1\Bakery.pdb
