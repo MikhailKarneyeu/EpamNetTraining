@@ -1,0 +1,9 @@
+E:\Docs\Git\NetTraining\EpamTask\Figures\bin\Debug\netcoreapp3.1\Figures.deps.json
+E:\Docs\Git\NetTraining\EpamTask\Figures\bin\Debug\netcoreapp3.1\Figures.dll
+E:\Docs\Git\NetTraining\EpamTask\Figures\bin\Debug\netcoreapp3.1\Figures.pdb
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.csprojAssemblyReference.cache
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.AssemblyInfoInputs.cache
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.AssemblyInfo.cs
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.csproj.CoreCompileInputs.cache
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.dll
+E:\Docs\Git\NetTraining\EpamTask\Figures\obj\Debug\netcoreapp3.1\Figures.pdb
