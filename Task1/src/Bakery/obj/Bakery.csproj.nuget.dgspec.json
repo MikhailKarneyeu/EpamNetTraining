@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Docs\\Git\\NetTraining\\Task1\\src\\Bakery\\Bakery.csproj": {}
+    "E:\\Docs\\Git\\EpamNetTraining\\Task1\\src\\Bakery\\Bakery.csproj": {}
   },
   "projects": {
-    "E:\\Docs\\Git\\NetTraining\\Task1\\src\\Bakery\\Bakery.csproj": {
+    "E:\\Docs\\Git\\EpamNetTraining\\Task1\\src\\Bakery\\Bakery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Docs\\Git\\NetTraining\\Task1\\src\\Bakery\\Bakery.csproj",
+        "projectUniqueName": "E:\\Docs\\Git\\EpamNetTraining\\Task1\\src\\Bakery\\Bakery.csproj",
         "projectName": "Bakery",
-        "projectPath": "E:\\Docs\\Git\\NetTraining\\Task1\\src\\Bakery\\Bakery.csproj",
+        "projectPath": "E:\\Docs\\Git\\EpamNetTraining\\Task1\\src\\Bakery\\Bakery.csproj",
         "packagesPath": "C:\\Users\\Mehail\\.nuget\\packages\\",
-        "outputPath": "E:\\Docs\\Git\\NetTraining\\Task1\\src\\Bakery\\obj\\",
+        "outputPath": "E:\\Docs\\Git\\EpamNetTraining\\Task1\\src\\Bakery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mehail\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

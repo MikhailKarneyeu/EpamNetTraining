@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h3kGpyi3L7uWExTrWye+bV65X7h2R7L3HENV/PZ6Iy5SIDZPRZBQF8nWsFcLpQ3txg1fB2bFsnlC2hz98eVIWg==",
+  "dgSpecHash": "hG9MMcMo4r31PtU6gPqLRFZx4h9f40eRjkkQS9RxQ1V1suFO3ECDY7msP2gDeETdZQodAIcW8lQvVZgx7EzUyQ==",
   "success": true,
-  "projectFilePath": "E:\\Docs\\Git\\NetTraining\\Task1\\test\\BakeryTests\\BakeryTests.csproj",
+  "projectFilePath": "E:\\Docs\\Git\\EpamNetTraining\\Task1\\test\\BakeryTests\\BakeryTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mehail\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Mehail\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

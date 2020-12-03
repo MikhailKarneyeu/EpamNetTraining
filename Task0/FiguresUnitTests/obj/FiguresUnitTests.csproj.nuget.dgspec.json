@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\FiguresUnitTests.csproj": {}
+    "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\FiguresUnitTests.csproj": {}
   },
   "projects": {
-    "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\FiguresUnitTests.csproj": {
+    "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\FiguresUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\FiguresUnitTests.csproj",
+        "projectUniqueName": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\FiguresUnitTests.csproj",
         "projectName": "FiguresUnitTests",
-        "projectPath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\FiguresUnitTests.csproj",
+        "projectPath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\FiguresUnitTests.csproj",
         "packagesPath": "C:\\Users\\Mehail\\.nuget\\packages\\",
-        "outputPath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\obj\\",
+        "outputPath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mehail\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\Figures.csproj": {
-                "projectPath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\Figures.csproj"
+              "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\Figures.csproj": {
+                "projectPath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\Figures.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\Figures.csproj": {
+    "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\Figures.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\Figures.csproj",
+        "projectUniqueName": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\Figures.csproj",
         "projectName": "Figures",
-        "projectPath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\Figures.csproj",
+        "projectPath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\Figures.csproj",
         "packagesPath": "C:\\Users\\Mehail\\.nuget\\packages\\",
-        "outputPath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\Figures\\obj\\",
+        "outputPath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\Figures\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mehail\\AppData\\Roaming\\NuGet\\NuGet.Config",

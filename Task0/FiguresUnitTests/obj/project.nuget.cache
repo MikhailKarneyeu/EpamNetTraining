@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WUx/nyQtz4tclmapf3kNYIb/7t8CQkGGh0YSvK9HGjOuQ1iZiHWVmXE5nIVK01dX6pMcXMS2N38qUMbV+D4nIg==",
+  "dgSpecHash": "QrLk6Cxm8Rc8xCjsUbWgzVuooijgoUT121JpAmMaMtyYEohHqgRbrnWGK375rX0xd8BvEydutNYxNwN9wKxn7Q==",
   "success": true,
-  "projectFilePath": "E:\\Docs\\Git\\NetTraining\\EpamTask\\FiguresUnitTests\\FiguresUnitTests.csproj",
+  "projectFilePath": "E:\\Docs\\Git\\EpamNetTraining\\Task0\\FiguresUnitTests\\FiguresUnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mehail\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Mehail\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
