@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mLYIooujuCWxDTz4EYrNgw+y/NSYwFWMZsdDn+uIEsoqh/izI1pFtKElGUZam9aGpSumPmc5/1kbOWqwF4gLfg==",
+  "success": true,
+  "projectFilePath": "E:\\Docs\\Git\\EpamNetTraining\\Task 2\\src\\Goods\\Goods.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mehail\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
