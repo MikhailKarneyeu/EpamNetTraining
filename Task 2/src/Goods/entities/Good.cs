@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Goods.entities
+namespace Goods.Entities
 {
-    class Good: IConvertible
+    public class Good
     {
         public string Name { get;}
         public double BasePrice { get; }
@@ -21,97 +21,24 @@ namespace Goods.entities
         {
             return BasePrice * Count;
         }
-        public TypeCode GetTypeCode()
-        {
-            throw new InvalidCastException();
-        }
 
-        public bool ToBoolean(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public byte ToByte(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public char ToChar(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public DateTime ToDateTime(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public decimal ToDecimal(IFormatProvider provider)
-        {
-            return (decimal)Price();
-        }
-
-        public double ToDouble(IFormatProvider provider)
+        public double ToDouble()
         {
             return Price();
         }
 
-        public short ToInt16(IFormatProvider provider)
-        {
-            return (short)(Price() * 100);
-        }
-
-        public int ToInt32(IFormatProvider provider)
+        public int ToInt()
         {
             return (int)(Price() * 100);
         }
 
-        public long ToInt64(IFormatProvider provider)
-        {
-            return (long)(Price() * 100);
-        }
-
-        public sbyte ToSByte(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public float ToSingle(IFormatProvider provider)
-        {
-            return (float)Price();
-        }
-
-        public string ToString(IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public object ToType(Type conversionType, IFormatProvider provider)
-        {
-            throw new InvalidCastException();
-        }
-
-        public ushort ToUInt16(IFormatProvider provider)
-        {
-            return (ushort)(Price() * 100);
-        }
-
-        public uint ToUInt32(IFormatProvider provider)
-        {
-            return (uint)(Price() * 100);
-        }
-
-        public ulong ToUInt64(IFormatProvider provider)
-        {
-            return (ulong)(Price() * 100);
-        }
         public static Good operator +(Good a, Good b)
         {
             if(a.Name!= b.Name)
             {
                 throw new InvalidGoodNameExeption($"Good 1 name:{a.Name}. Good 2 name:{b.Name}.");
             }
-            double basePrice = (a.BasePrice*a.Count+b.BasePrice*b.BasePrice) / (a.Count+b.Count);
+            double basePrice = (a.BasePrice*a.Count+b.BasePrice*b.Count) / (a.Count+b.Count);
             return new Good(a.Name, basePrice, a.Count+b.Count);
         }
         public static Good operator -(Good a, int b)
@@ -124,11 +51,14 @@ namespace Goods.entities
         }
         public override bool Equals(object obj)
         {
-            if(ToString()!= obj.ToString())
-            {
+            if (obj == null)
                 return false;
+            var item = obj as Good;
+            if (item.Name == Name && item.BasePrice == BasePrice && item.Count == Count)
+            {
+                return true;
             }
-            return true;
+            else return false;
         }
         public override int GetHashCode()
         {

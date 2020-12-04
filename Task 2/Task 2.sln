@@ -3,18 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods", "src\Goods\Goods.csproj", "{C41B9F7E-07DA-434F-8249-AA40A46377D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Goods", "src\Goods\Goods.csproj", "{C41B9F7E-07DA-434F-8249-AA40A46377D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9CDBBC7F-5EF9-4526-ACE0-A7A955F22F16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C2CF4251-4A69-4F3B-910B-DB5881DC2FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsTests", "test\GoodsTests\GoodsTests.csproj", "{30F5588A-AB34-429B-80F9-25F9EE261E70}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01BF6AD1-D332-4B78-9A2E-AAD82D4CD92E}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsTests", "test\GoodsTests\GoodsTests.csproj", "{30F5588A-AB34-429B-80F9-25F9EE261E70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

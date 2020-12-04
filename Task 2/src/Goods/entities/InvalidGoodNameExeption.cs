@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Goods.entities
+namespace Goods.Entities
 {
-    class InvalidGoodNameExeption: Exception
+    public class InvalidGoodNameExeption: Exception
     {
         public InvalidGoodNameExeption()
         { 

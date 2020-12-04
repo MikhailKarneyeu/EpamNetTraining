@@ -1,0 +1,1 @@
+[{"$type":"Goods.Entities.SellableGood, Goods","Markup":2.0,"Name":"Good name 1","BasePrice":10.0,"Count":5},{"$type":"Goods.Entities.SellableGood, Goods","Markup":1.2,"Name":"Good name 2","BasePrice":12.0,"Count":6},{"Name":"Good name 3","BasePrice":15.0,"Count":2},{"$type":"Goods.Entities.SellableGood, Goods","Markup":1.0,"Name":"Good name 4","BasePrice":5.0,"Count":5}]
