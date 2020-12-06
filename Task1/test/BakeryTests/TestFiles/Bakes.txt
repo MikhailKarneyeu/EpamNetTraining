@@ -1,5 +1,0 @@
-Bake 1;Component 1:12;Component 3:300;Component 4:20
-Bake 2;Component 2:200;Component 3:20
-Bake 3;Component 3:100;Component 5:30
-Bake 4;Component 3:400;Component 4:10;Component 5:50
-Bake 5;Component 2:200;Component 3:20
