@@ -1,2 +1,0 @@
-Bake 1;Component 1:10;Component 2:3
-Bake 2;Component 2:20;Component 3:5
