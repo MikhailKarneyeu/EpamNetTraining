@@ -4,8 +4,14 @@ using System;
 
 namespace GoodsTests.Tests
 {
+    /// <summary>
+    /// Class to test good and sellable good classes.
+    /// </summary>
     public class GoodTests
     {
+        /// <summary>
+        /// Test to get good price for one.
+        /// </summary>
         [Test]
         public void GoodPriceForOneTest()
         {
@@ -17,6 +23,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(priceForOne == oneGoodPrice);
         }
+        /// <summary>
+        /// Test to get good full price
+        /// </summary>
         [Test]
         public void GoodPrice()
         {
@@ -28,6 +37,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPrice);
         }
+        /// <summary>
+        /// Converting good to double test.
+        /// </summary>
         [Test]
         public void GoodConvertToDouble()
         {
@@ -39,6 +51,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPriceInDouble);
         }
+        /// <summary>
+        /// Converting good to integer test.
+        /// </summary>
         [Test]
         public void GoodConvertToInt()
         {
@@ -50,6 +65,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPriceInInt);
         }
+        /// <summary>
+        /// Summ of 2 goods test.
+        /// </summary>
         [Test]
         public void GoodsSumTest()
         {
@@ -62,6 +80,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(good.Equals(resultGood));
         }
+        /// <summary>
+        /// Good integer subtraction test.
+        /// </summary>
         [Test]
         public void GoodIntSubtractionOperationTest()
         {
@@ -74,6 +95,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(good.Equals(resultGood));
         }
+        /// <summary>
+        /// Test to get sellable good price for one.
+        /// </summary>
         [Test]
         public void SellableGoodPriceForOneTest()
         {
@@ -85,6 +109,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(priceForOne == oneGoodPrice);
         }
+        /// <summary>
+        /// Test to get full sellable good price.
+        /// </summary>
         [Test]
         public void SellableGoodPrice()
         {
@@ -96,6 +123,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPrice);
         }
+        /// <summary>
+        /// Converting sellable good to double test.
+        /// </summary>
         [Test]
         public void SellableGoodConvertToDouble()
         {
@@ -107,6 +137,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPriceInDouble);
         }
+        /// <summary>
+        /// Converting sellable good to integer test.
+        /// </summary>
         [Test]
         public void SellableGoodConvertToInt()
         {
@@ -118,6 +151,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(price == goodPriceInInt);
         }
+        /// <summary>
+        /// Summ of 2 sellable goods test.
+        /// </summary>
         [Test]
         public void SellableGoodsSumTest()
         {
@@ -130,6 +166,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(good.Equals(resultGood));
         }
+        /// <summary>
+        /// Exeprtion generation in goods summ test.
+        /// </summary>
         [Test]
         public void GoodsSumFailTest()
         {
@@ -150,6 +189,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.That(ex.Message, Is.EqualTo($"Good 1 name:{goodA.Name}. Good 2 name:{goodB.Name}."));
         }
+        /// <summary>
+        /// Exeprtion generation in sellable goods summ test.
+        /// </summary>
         [Test]
         public void SellableGoodsSumFailTest()
         {
@@ -170,6 +212,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.That(ex.Message, Is.EqualTo($"Good 1 name:{goodA.Name}. Good 2 name:{goodB.Name}."));
         }
+        /// <summary>
+        /// Good to sellable good convertion test.
+        /// </summary>
         [Test]
         public void GoodConvertToSellableTest()
         {
@@ -181,6 +226,9 @@ namespace GoodsTests.Tests
             // Assert
             Assert.IsTrue(resultSellableGood.Equals(sellableGood));
         }
+        /// <summary>
+        /// Sellable good to good convertion test.
+        /// </summary>
         [Test]
         public void SellableGoodConvertToGoodTest()
         {

@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Goods</name>
+    </assembly>
+    <members>
+        <member name="T:Goods.Entities.Good">
+            <summary>
+            Class representing good.
+            </summary>
+        </member>
+        <member name="P:Goods.Entities.Good.Name">
+            <summary>
+            Good name.
+            </summary>
+        </member>
+        <member name="P:Goods.Entities.Good.BasePrice">
+            <summary>
+            Good purchase price.
+            </summary>
+        </member>
+        <member name="P:Goods.Entities.Good.Count">
+            <summary>
+            Good count.
+            </summary>
+        </member>
+        <member name="M:Goods.Entities.Good.#ctor(System.String,System.Double,System.Int32)">
+            <summary>
+            Good constructor.
+            </summary>
+            <param name="name">Good name.</param>
+            <param name="basePrice">Good purchase price.</param>
+            <param name="count">Good count.</param>
+        </member>
+        <member name="M:Goods.Entities.Good.PriceForOne">
+            <summary>
+            Method to get price for one good.
+            </summary>
+            <returns>Price for one good in double type.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.Price">
+            <summary>
+            Method to get full price for this count of good.
+            </summary>
+            <returns>Full price in double type.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.ToDouble">
+            <summary>
+            Method to convert good to double.
+            </summary>
+            <returns>Full price on double type.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.ToInt">
+            <summary>
+            Method to convert good ti int;
+            </summary>
+            <returns>Full price in kopeks.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.op_Addition(Goods.Entities.Good,Goods.Entities.Good)">
+            <summary>
+            Operator to summ 2 goods.
+            </summary>
+            <param name="a">First good.</param>
+            <param name="b">Second good.</param>
+            <returns>Good with weighted average base price and goods count summ.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.op_Subtraction(Goods.Entities.Good,System.Int32)">
+            <summary>
+            Operator to subtract integer from good.
+            </summary>
+            <param name="a">Good to subtract from.</param>
+            <param name="b">Interger to subtract.</param>
+            <returns>Good with decreased count.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.ToString">
+            <summary>
+            Ovveride method to convert good to string.
+            </summary>
+            <returns>String "good name;base price;count;price for one; full price"</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.Equals(System.Object)">
+            <summary>
+            Method to compare two goods.
+            </summary>
+            <param name="obj">Good to compare.</param>
+            <returns>Boolean result of the comparison.</returns>
+        </member>
+        <member name="M:Goods.Entities.Good.GetHashCode">
+            <summary>
+            Method to get hash code of good.
+            </summary>
+            <returns>Integer hash code.</returns>
+        </member>
+        <member name="T:Goods.Entities.InvalidGoodNameExeption">
+            <summary>
+            Class for unequal goods names in add operation exeption.
+            </summary>
+        </member>
+        <member name="M:Goods.Entities.InvalidGoodNameExeption.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Goods.Entities.InvalidGoodNameExeption.#ctor(System.String)">
+            <summary>
+            Constructor with exeption message.
+            </summary>
+            <param name="message">Exeption message,</param>
+        </member>
+        <member name="M:Goods.Entities.InvalidGoodNameExeption.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor with exeption message and inner exeption.
+            </summary>
+            <param name="message">Exeption message.</param>
+            <param name="inner">Inner exeption.</param>
+        </member>
+        <member name="T:Goods.Entities.SellableGood">
+            <summary>
+            Class for good with markup.
+            </summary>
+        </member>
+        <member name="P:Goods.Entities.SellableGood.Markup">
+            <summary>
+            Good markup.
+            </summary>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.#ctor(System.String,System.Double,System.Int32,System.Double)">
+            <summary>
+            Costructor for sellable good.
+            </summary>
+            <param name="name">Good name.</param>
+            <param name="basePrice">Good purchase price.</param>
+            <param name="count">Good count.</param>
+            <param name="markup">Good markup.</param>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.PriceForOne">
+            <summary>
+            Method to get price for one good.
+            </summary>
+            <returns>Price for one good in double type.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.Price">
+            <summary>
+            Method to get full price for this count of good.
+            </summary>
+            <returns>Full price in double type.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.ToGood(Goods.Entities.SellableGood)">
+            <summary>
+            Method to convert sellable good to good.
+            </summary>
+            <param name="b">Sellable good.</param>
+            <returns>The resulting good.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.ToSellableGood(Goods.Entities.Good)">
+            <summary>
+            Method to convert good to sellable good.
+            </summary>
+            <param name="b">Good to convert.</param>
+            <returns>The resulting sellable good.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.op_Addition(Goods.Entities.SellableGood,Goods.Entities.SellableGood)">
+            <summary>
+            Operator to summ 2 sellable goods.
+            </summary>
+            <param name="a">First good.</param>
+            <param name="b">Second good.</param>
+            <returns>Sellable good with weighted average base price, markup and goods count summ.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.op_Subtraction(Goods.Entities.SellableGood,System.Int32)">
+            <summary>
+            Operator to subtract integer from sellable good.
+            </summary>
+            <param name="a">Sellable good to subtract from.</param>
+            <param name="b">Interger to subtract.</param>
+            <returns>Sellable good with decreased count.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.ToString">
+            <summary>
+            Ovveride method to convert sellable good to string.
+            </summary>
+            <returns>String "good name;base price;count;price for one; full price;markup"</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.Equals(System.Object)">
+            <summary>
+            Method to compare two goods.
+            </summary>
+            <param name="obj">Good to compare.</param>
+            <returns>Boolean result of the comparison.</returns>
+        </member>
+        <member name="M:Goods.Entities.SellableGood.GetHashCode">
+            <summary>
+            Method to get hash code of good.
+            </summary>
+            <returns>Integer hash code.</returns>
+        </member>
+        <member name="T:Goods.Services.GoodFileOperator">
+            <summary>
+            Class for operations with xml files.
+            </summary>
+        </member>
+        <member name="M:Goods.Services.GoodFileOperator.ReadAll(System.String)">
+            <summary>
+            Method to get list of goods from xml file.
+            </summary>
+            <param name="filePath">Path to file.</param>
+            <returns>List of goods.</returns>
+        </member>
+        <member name="M:Goods.Services.GoodFileOperator.WriteAll(System.String,System.Collections.Generic.List{Goods.Entities.Good})">
+            <summary>
+            Method to save good list to xml file.
+            </summary>
+            <param name="filePath">Path to file.</param>
+            <param name="goods">Good list to save.</param>
+        </member>
+    </members>
+</doc>
