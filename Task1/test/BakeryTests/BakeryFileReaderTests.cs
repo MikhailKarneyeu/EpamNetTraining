@@ -1,12 +1,20 @@
 using Bakery;
+using Bakery.Entities;
+using Bakery.Services;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BakeryTests
 {
+    /// <summary>
+    /// Class to test BakeryFileReader class.
+    /// </summary>
     public class BakeryFileReaderTests
     {
+        /// <summary>
+        /// Test of components calorie read method.
+        /// </summary>
         [Test]
         public void ReadComponentsCalorieTest()
         {
@@ -23,6 +31,9 @@ namespace BakeryTests
             // Assert
             Assert.IsFalse(componentsCalorie.Any(entry => assertComponentsCalorie[entry.Key]!=entry.Value));
         }
+        /// <summary>
+        /// Test of component prices read method.
+        /// </summary>
         [Test]
         public void ReadComponentsPriceTest()
         {
@@ -39,6 +50,9 @@ namespace BakeryTests
             // Assert
             Assert.IsFalse(componentsPrice.Any(entry => assertComponentsPrice[entry.Key] != entry.Value), $"{componentsPrice["Component 5"]} {assertComponentsPrice["Component 5"]}");
         }
+        /// <summary>
+        /// Test of bake markups read method.
+        /// </summary>
         [Test]
         public void ReadMarkupsTest()
         {
@@ -55,6 +69,9 @@ namespace BakeryTests
             // Assert
             Assert.IsFalse(markups.Any(entry => assertMarkups[entry.Key] != entry.Value));
         }
+        /// <summary>
+        /// Test of bakes read method.
+        /// </summary>
         [Test]
         public void ReadBakesTest()
         {

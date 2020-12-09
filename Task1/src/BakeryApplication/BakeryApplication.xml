@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BakeryApplication</name>
+    </assembly>
+    <members>
+        <member name="T:BakeryApplication.BakeryConsoleApp">
+            <summary>
+            Console application operating bakes according taks.
+            </summary>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.CalorieSort(Bakery.Entities.Bake[])">
+            <summary>
+            Method sorting bakes by calorie.
+            </summary>
+            <param name="bakeToSort">Bakes array to sort.</param>
+            <returns>Sorted array of bakes.</returns>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.PriceSort(Bakery.Entities.Bake[])">
+            <summary>
+            Method sorting bakes by price.
+            </summary>
+            <param name="bakeToSort">Bakes array to sort.</param>
+            <returns>Sorted array of bakes.</returns>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.FindPriceCalorieEqualBakes(Bakery.Entities.Bake[],Bakery.Entities.Bake)">
+            <summary>
+            Method searching bakes equal by calorie and price to given bake.
+            </summary>
+            <param name="bakes">Array of bakes to search in.</param>
+            <param name="bakeToCompare">Given bake to compare.</param>
+            <returns>Array of bakes equal to given bake.</returns>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.FindComponentOverrunBakes(Bakery.Entities.Bake[],System.String,System.Int32)">
+            <summary>
+            Method to bakes with given component overrun.
+            </summary>
+            <param name="bakes">Array of bakes to search in.</param>
+            <param name="component">Name of component.</param>
+            <param name="componentCount">Count of component to compare.</param>
+            <returns>Array of bakes with component overrun.</returns>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.FindComponentCountOverrunBakes(Bakery.Entities.Bake[],System.Int32)">
+            <summary>
+            Method of search bakes with component count overrun.
+            </summary>
+            <param name="bakes">Array of bakes to search in.</param>
+            <param name="componentsCount">Count of components to compare.</param>
+            <returns>Array of bakes with component count overrun.</returns>
+        </member>
+        <member name="M:BakeryApplication.BakeryConsoleApp.ShowBakes(Bakery.Entities.Bake[])">
+            <summary>
+            Method to show bake array.
+            </summary>
+            <param name="bakes">Bake array to show.</param>
+        </member>
+    </members>
+</doc>

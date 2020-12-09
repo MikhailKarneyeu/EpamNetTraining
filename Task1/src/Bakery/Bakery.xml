@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bakery</name>
+    </assembly>
+    <members>
+        <member name="T:Bakery.Entities.Bake">
+            <summary>
+            Class to make bakes.
+            </summary>
+        </member>
+        <member name="P:Bakery.Entities.Bake.Name">
+            <summary>
+            Bake name.
+            </summary>
+        </member>
+        <member name="P:Bakery.Entities.Bake.Composition">
+            <summary>
+            Bake composition in dictionary "component name" - "count".
+            </summary>
+        </member>
+        <member name="P:Bakery.Entities.Bake.Calorie">
+            <summary>
+            Calorie of bake.
+            </summary>
+        </member>
+        <member name="P:Bakery.Entities.Bake.Price">
+            <summary>
+            Price of bake.
+            </summary>
+        </member>
+        <member name="M:Bakery.Entities.Bake.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Collections.Generic.Dictionary{System.String,System.Double},System.Collections.Generic.Dictionary{System.String,System.Double},System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Main bake onstructor.
+            Calorie and price calculate here.
+            </summary>
+            <param name="name">Bake name.</param>
+            <param name="composition">Bake composition dictionary.</param>
+            <param name="componentsCalorie">Component calorie dictionary. </param>
+            <param name="componentsPrice">Component price dictionary.</param>
+            <param name="markups">Bake markups dictionary.</param>
+        </member>
+        <member name="M:Bakery.Entities.Bake.ToString">
+            <summary>
+            Method ovveride to get string form.
+            </summary>
+            <returns>String "name;composition;calorie;price"</returns>
+        </member>
+        <member name="M:Bakery.Entities.Bake.GetHashCode">
+            <summary>
+            Method ovveride to get hash code of a bake.
+            </summary>
+            <returns>Integer hash code.</returns>
+        </member>
+        <member name="M:Bakery.Entities.Bake.Equals(System.Object)">
+            <summary>
+            Method ovveride to compare equality of two bakes.
+            </summary>
+            <param name="obj">Bake to compare.</param>
+            <returns>Boolean result of comparison.</returns>
+        </member>
+        <member name="T:Bakery.Services.BakeryFileReader">
+            <summary>
+            Class to read files with bakes, calorie per component, price for component, markups per bake.
+            </summary>
+        </member>
+        <member name="M:Bakery.Services.BakeryFileReader.ReadBakes(System.String,System.Collections.Generic.Dictionary{System.String,System.Double},System.Collections.Generic.Dictionary{System.String,System.Double},System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Method to read file with bakes.
+            </summary>
+            <param name="filePath">Path to file.</param>
+            <param name="componentsCalorie">Calorie per coponent dictionary.</param>
+            <param name="markups">Bakes markup dictonary.</param>
+            <param name="componentsPrice">Price for component dictionary.</param>
+            <returns>Array of Bakes.</returns>
+        </member>
+        <member name="M:Bakery.Services.BakeryFileReader.ReadMarkups(System.String)">
+            <summary>
+            Method to read bakes markups.
+            </summary>
+            <param name="filePath">Path to file with markups.</param>
+            <returns>Dictionary of markups "bake name"-"value".</returns>
+        </member>
+        <member name="M:Bakery.Services.BakeryFileReader.ReadComponentsCalorie(System.String)">
+            <summary>
+            Method to read component calorie dictionary.
+            </summary>
+            <param name="filePath">Path to file.</param>
+            <returns>Dictionary of calorie "component name"-"value".</returns>
+        </member>
+        <member name="M:Bakery.Services.BakeryFileReader.ReadComponentsPrice(System.String)">
+            <summary>
+            Method to read component prices dictionary.
+            </summary>
+            <param name="filePath">Path to file.</param>
+            <returns>Dictionary of prices "component name"-"value".</returns>
+        </member>
+        <member name="T:Bakery.Services.CalorieSorter">
+            <summary>
+            Class to compare bakes by calorie value.
+            </summary>
+        </member>
+        <member name="T:Bakery.Services.PriceSorter">
+            <summary>
+            Class to compare bakes by price value.
+            </summary>
+        </member>
+    </members>
+</doc>

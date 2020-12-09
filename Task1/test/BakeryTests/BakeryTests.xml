@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BakeryTests</name>
+    </assembly>
+    <members>
+        <member name="T:BakeryTests.BakeryFileReaderTests">
+            <summary>
+            Class to test BakeryFileReader class.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeryFileReaderTests.ReadComponentsCalorieTest">
+            <summary>
+            Test of components calorie read method.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeryFileReaderTests.ReadComponentsPriceTest">
+            <summary>
+            Test of component prices read method.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeryFileReaderTests.ReadMarkupsTest">
+            <summary>
+            Test of bake markups read method.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeryFileReaderTests.ReadBakesTest">
+            <summary>
+            Test of bakes read method.
+            </summary>
+        </member>
+        <member name="T:BakeryTests.BakeTests">
+            <summary>
+            Class to test bake class.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeTests.BakePriceTest">
+            <summary>
+            Test of price calcutarion.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.BakeTests.BakeCalorieTest">
+            <summary>
+            Test of calorie calculation.
+            </summary>
+        </member>
+        <member name="T:BakeryTests.ProgramTests">
+            <summary>
+            Class to test methods of console application.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.ProgramTests.CalorieSortTest">
+            <summary>
+            Test of bake sorting by calorie.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.ProgramTests.PriceSortTest">
+            <summary>
+            Test of bake sorting by price.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.ProgramTests.FindPriceCalorieEqualBakesTest">
+            <summary>
+            Test of price and calorie equal bakes search.
+            </summary>
+        </member>
+        <member name="M:BakeryTests.ProgramTests.FindComponentOverrunBakesTest">
+            <summary>
+            Test of component overrun bakes search,
+            </summary>
+        </member>
+        <member name="M:BakeryTests.ProgramTests.FindComponentCountOverrunBakesTest">
+            <summary>
+            Test of component count overrun bakes search.
+            </summary>
+        </member>
+    </members>
+</doc>

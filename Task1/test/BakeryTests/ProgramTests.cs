@@ -1,4 +1,5 @@
 ﻿using Bakery;
+using Bakery.Entities;
 using BakeryApplication;
 using NUnit.Framework;
 using System;
@@ -8,8 +9,14 @@ using System.Text;
 
 namespace BakeryTests
 {
+    /// <summary>
+    /// Class to test methods of console application.
+    /// </summary>
     class ProgramTests
     {
+        /// <summary>
+        /// Test of bake sorting by calorie.
+        /// </summary>
         [Test]
         public void CalorieSortTest()
         {
@@ -62,6 +69,9 @@ namespace BakeryTests
             // Assert
             Assert.IsTrue(testBakes.SequenceEqual(assertBakes));
         }
+        /// <summary>
+        /// Test of bake sorting by price.
+        /// </summary>
         [Test]
         public void PriceSortTest()
         {
@@ -114,6 +124,9 @@ namespace BakeryTests
             // Assert
             Assert.IsTrue(testBakes.SequenceEqual(assertBakes));
         }
+        /// <summary>
+        /// Test of price and calorie equal bakes search.
+        /// </summary>
         [Test]
         public void FindPriceCalorieEqualBakesTest()
         {
@@ -166,6 +179,9 @@ namespace BakeryTests
             // Assert
             Assert.IsTrue(testBakes.SequenceEqual(assertBakes));
         }
+        /// <summary>
+        /// Test of component overrun bakes search,
+        /// </summary>
         [Test]
         public void FindComponentOverrunBakesTest()
         {
@@ -220,6 +236,9 @@ namespace BakeryTests
             // Assert
             Assert.IsTrue(testBakes.SequenceEqual(assertBakes));
         }
+        /// <summary>
+        /// Test of component count overrun bakes search.
+        /// </summary>
         [Test]
         public void FindComponentCountOverrunBakesTest()
         {

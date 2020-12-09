@@ -1,11 +1,18 @@
 ﻿using NUnit.Framework;
 using Bakery;
 using System.Collections.Generic;
+using Bakery.Entities;
 
 namespace BakeryTests
 {
-    class EnlitiesTests
+    /// <summary>
+    /// Class to test bake class.
+    /// </summary>
+    class BakeTests
     {
+        /// <summary>
+        /// Test of price calcutarion.
+        /// </summary>
         [Test]
         public void BakePriceTest()
         {
@@ -28,7 +35,9 @@ namespace BakeryTests
             // Assert
             Assert.IsTrue(bakeToTest.Price == AssertPrice, $"{bakeToTest.Price}!={AssertPrice}");
         }
-
+        /// <summary>
+        /// Test of calorie calculation.
+        /// </summary>
         [Test]
         public void BakeCalorieTest()
         {

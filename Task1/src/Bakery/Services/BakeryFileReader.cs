@@ -1,11 +1,23 @@
-﻿using System;
+﻿using Bakery.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bakery
+namespace Bakery.Services
 {
+    /// <summary>
+    /// Class to read files with bakes, calorie per component, price for component, markups per bake.
+    /// </summary>
     public abstract class BakeryFileReader
     {
+        /// <summary>
+        /// Method to read file with bakes.
+        /// </summary>
+        /// <param name="filePath">Path to file.</param>
+        /// <param name="componentsCalorie">Calorie per coponent dictionary.</param>
+        /// <param name="markups">Bakes markup dictonary.</param>
+        /// <param name="componentsPrice">Price for component dictionary.</param>
+        /// <returns>Array of Bakes.</returns>
         public static Bake[] ReadBakes(string filePath, Dictionary<string, double> componentsCalorie, Dictionary<string, double> markups, Dictionary<string, double> componentsPrice)
         {
             Bake[] bakes = new Bake[0];
@@ -26,6 +38,11 @@ namespace Bakery
             }
             return bakes;
         }
+        /// <summary>
+        /// Method to read bakes markups.
+        /// </summary>
+        /// <param name="filePath">Path to file with markups.</param>
+        /// <returns>Dictionary of markups "bake name"-"value".</returns>
         public static Dictionary<string, double> ReadMarkups(string filePath)
         {
             Dictionary<string, double> markups = new Dictionary<string, double>();
@@ -41,7 +58,11 @@ namespace Bakery
             return markups;
 
         }
-
+        /// <summary>
+        /// Method to read component calorie dictionary.
+        /// </summary>
+        /// <param name="filePath">Path to file.</param>
+        /// <returns>Dictionary of calorie "component name"-"value".</returns>
         public static Dictionary<string, double> ReadComponentsCalorie(string filePath)
         {
             Dictionary<string, double> componentsCalorie = new Dictionary<string, double>();
@@ -55,7 +76,11 @@ namespace Bakery
             }
             return componentsCalorie;
         }
-
+        /// <summary>
+        /// Method to read component prices dictionary.
+        /// </summary>
+        /// <param name="filePath">Path to file.</param>
+        /// <returns>Dictionary of prices "component name"-"value".</returns>
         public static Dictionary<string, double> ReadComponentsPrice(string filePath)
         {
             Dictionary<string, double> componentsPrice = new Dictionary<string, double>();
