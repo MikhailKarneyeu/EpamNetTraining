@@ -1,9 +1,0 @@
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\bin\Debug\netcoreapp3.1\Goods.deps.json
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\bin\Debug\netcoreapp3.1\Goods.dll
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\bin\Debug\netcoreapp3.1\Goods.pdb
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.csprojAssemblyReference.cache
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.AssemblyInfoInputs.cache
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.AssemblyInfo.cs
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.csproj.CoreCompileInputs.cache
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.dll
-E:\Docs\Git\EpamNetTraining\Task 2\src\Goods\obj\Debug\netcoreapp3.1\Goods.pdb
