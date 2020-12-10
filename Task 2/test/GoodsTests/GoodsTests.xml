@@ -4,5 +4,85 @@
         <name>GoodsTests</name>
     </assembly>
     <members>
+        <member name="T:GoodsTests.Tests.GoodTests">
+            <summary>
+            Class to test good and sellable good classes.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodPriceForOneTest">
+            <summary>
+            Test to get good price for one.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodPrice">
+            <summary>
+            Test to get good full price
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodConvertToDouble">
+            <summary>
+            Converting good to double test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodConvertToInt">
+            <summary>
+            Converting good to integer test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodsSumTest">
+            <summary>
+            Summ of 2 goods test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodIntSubtractionOperationTest">
+            <summary>
+            Good integer subtraction test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodPriceForOneTest">
+            <summary>
+            Test to get sellable good price for one.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodPrice">
+            <summary>
+            Test to get full sellable good price.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodConvertToDouble">
+            <summary>
+            Converting sellable good to double test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodConvertToInt">
+            <summary>
+            Converting sellable good to integer test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodsSumTest">
+            <summary>
+            Summ of 2 sellable goods test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodsSumFailTest">
+            <summary>
+            Exeprtion generation in goods summ test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodsSumFailTest">
+            <summary>
+            Exeprtion generation in sellable goods summ test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.GoodConvertToSellableTest">
+            <summary>
+            Good to sellable good convertion test.
+            </summary>
+        </member>
+        <member name="M:GoodsTests.Tests.GoodTests.SellableGoodConvertToGoodTest">
+            <summary>
+            Sellable good to good convertion test.
+            </summary>
+        </member>
     </members>
 </doc>
