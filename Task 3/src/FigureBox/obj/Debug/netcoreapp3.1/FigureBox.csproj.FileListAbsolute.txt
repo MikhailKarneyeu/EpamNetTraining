@@ -1,0 +1,12 @@
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\FigureBox.deps.json
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\FigureBox.dll
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\FigureBox.pdb
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.csprojAssemblyReference.cache
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.AssemblyInfoInputs.cache
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.AssemblyInfo.cs
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.csproj.CoreCompileInputs.cache
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.dll
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.pdb
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\Figures.dll
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\Figures.pdb
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.csproj.CopyComplete
