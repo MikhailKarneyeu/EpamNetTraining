@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Figures</name>
+    </assembly>
+    <members>
+        <member name="T:Figures.Entities.CircleFigure">
+            <summary>
+            Circle figure class.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.CircleFigure.color">
+            <summary>
+            Color of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.CircleFigure.Name">
+            <summary>
+            Property to get and set figure name.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.CircleFigure.Side">
+            <summary>
+            Property to get radius.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.CircleFigure.Color">
+            <summary>
+            Property to get figure color.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.#ctor(System.String,System.Double[])">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="side">Figure radius.</param>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.Perimeter">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns>Figure perimeter in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.Square">
+            <summary>
+            Method to get figure square.
+            </summary>
+            <returns>Figure square in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.SizeCheck(Figures.Entities.IFigure)">
+            <summary>
+            Method to check if figure fit in current figure.
+            </summary>
+            <param name="figure">Figure to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.ToString">
+            <summary>
+            Method to get string.
+            </summary>
+            <returns>String "Name;Raduis;Color;Perimeter;Square"</returns>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.Equals(System.Object)">
+            <summary>
+            Method to compare figures.
+            </summary>
+            <param name="obj">Figure to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.CircleFigure.GetHashCode">
+            <summary>
+            Method to get hashcode.
+            </summary>
+            <returns>Integer hashcode.</returns>
+        </member>
+        <member name="T:Figures.Entities.ColorsEnum">
+            <summary>
+            Colors enumeration.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.ColorsEnum.Red">
+            <summary>
+            Red color.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.ColorsEnum.Blue">
+            <summary>
+            Blue color.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.ColorsEnum.Green">
+            <summary>
+            Green color.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.ColorsEnum.Orange">
+            <summary>
+            Orange color.
+            </summary>
+        </member>
+        <member name="T:Figures.Entities.FigureDecorator">
+            <summary>
+            Decorator class to add material to figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.FigureDecorator.Figure">
+            <summary>
+            Figure to add material.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.FigureDecorator.Name">
+            <summary>
+            Figure name.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.FigureDecorator.Side">
+            <summary>
+            Sides or radius of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.FigureDecorator.Color">
+            <summary>
+            Figure color.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.#ctor(Figures.Entities.IFigure)">
+            <summary>
+            Constructior with parameter.
+            </summary>
+            <param name="figure">Figure implemented IFigure.</param>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.Paint(System.String)">
+            <summary>
+            Method to get figure color.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.Perimeter">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.Square">
+            <summary>
+            Method to get figure square.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.SizeCheck(Figures.Entities.IFigure)">
+            <summary>
+            Method to check if figre fit in current figure.
+            </summary>
+            <param name="figure">Figure to fit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.ToString">
+            <summary>
+            Overrided method to get string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.Equals(System.Object)">
+            <summary>
+            Overrided method to compare objects.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.GetHashCode">
+            <summary>
+            Method to get hashcode of object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.GetSchema">
+            <summary>
+            Method to get xmlchema.
+            </summary>
+            <returns>Null.</returns>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Method to read object during serialization.
+            </summary>
+            <param name="reader">Xmlreader.</param>
+        </member>
+        <member name="M:Figures.Entities.FigureDecorator.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to save object during serialization.
+            </summary>
+            <param name="writer">Xmlreader.</param>
+        </member>
+        <member name="T:Figures.Entities.FigurePaintException">
+            <summary>
+            Invalid paint operation exception.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FigurePaintException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FigurePaintException.#ctor(System.String)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:Figures.Entities.FigurePaintException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="inner">Exception inner object.</param>
+        </member>
+        <member name="T:Figures.Entities.FilmFigure">
+            <summary>
+            Film figure class.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.#ctor(System.String,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="figure">Figure to make fimlfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.#ctor(System.String,Figures.Entities.IFigure,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="originalFigure">Figure to make fimlfigure from.</param>
+            <param name="figure">Figure to make fimlfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.GetSchema">
+            <summary>
+            Method to get xmlchema.
+            </summary>
+            <returns>Null.</returns>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Method to read object during serialization.
+            </summary>
+            <param name="reader">Xmlreader.</param>
+        </member>
+        <member name="M:Figures.Entities.FilmFigure.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to save object during serialization.
+            </summary>
+            <param name="writer">Xmlreader.</param>
+        </member>
+        <member name="T:Figures.Entities.IFigure">
+            <summary>
+            Interface for figures.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.IFigure.Name">
+            <summary>
+            Figure name.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.IFigure.Side">
+            <summary>
+            Figure sides or radius.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.IFigure.Color">
+            <summary>
+            Figure color.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.IFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Color of paint.</param>
+        </member>
+        <member name="M:Figures.Entities.IFigure.Square">
+            <summary>
+            Method to get figure square.
+            </summary>
+            <returns>Figure square in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.IFigure.Perimeter">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns>Figure perimeter in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.IFigure.SizeCheck(Figures.Entities.IFigure)">
+            <summary>
+            Method to check if figure fit in current figure.
+            </summary>
+            <param name="figure">Figure to check.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Figures.Entities.InvalidFigureSizeException">
+            <summary>
+            Figure is to small to cut different figure exeption.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.InvalidFigureSizeException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.InvalidFigureSizeException.#ctor(System.String)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:Figures.Entities.InvalidFigureSizeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="inner">Exception inner object.</param>
+        </member>
+        <member name="T:Figures.Entities.PaperFigure">
+            <summary>
+            Paper figure class.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.#ctor(System.String,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="figure">Figure to make paperfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.#ctor(System.String,Figures.Entities.PaperFigure,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="originalFigure">Figure to make paperfigure from.</param>
+            <param name="figure">Figure to make paperfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.GetSchema">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Method to read object during serialization.
+            </summary>
+            <param name="reader">Xmlreader.</param>
+        </member>
+        <member name="M:Figures.Entities.PaperFigure.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to save object during serialization.
+            </summary>
+            <param name="writer">Xmlreader.</param>
+        </member>
+        <member name="T:Figures.Entities.PlasticFigure">
+            <summary>
+            Plastic figure class.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.#ctor(System.String,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="figure">Figure to make plasticfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.#ctor(System.String,Figures.Entities.IFigure,Figures.Entities.IFigure)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="originalFigure">Figure to make plasticfigure from.</param>
+            <param name="figure">Figure to make plasticfigure.</param>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.GetSchema">
+            <summary>
+            Method to get xmlchema.
+            </summary>
+            <returns>Null.</returns>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Method to read object during serialization.
+            </summary>
+            <param name="reader">Xmlreader.</param>
+        </member>
+        <member name="M:Figures.Entities.PlasticFigure.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to save object during serialization.
+            </summary>
+            <param name="writer">Xmlreader.</param>
+        </member>
+        <member name="T:Figures.Entities.RectangleFigure">
+            <summary>
+            Rectangle figure class.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.RectangleFigure.color">
+            <summary>
+            Color of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.RectangleFigure.Name">
+            <summary>
+            Property to get and set figure name.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.RectangleFigure.Side">
+            <summary>
+            Property to get side array of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.RectangleFigure.Color">
+            <summary>
+            Property to get figure color.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.#ctor(System.String,System.Double[])">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="side">Figure sides array.</param>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.Perimeter">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns>Figure perimeter in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.Square">
+            <summary>
+            Method to get figure square.
+            </summary>
+            <returns>Figure square in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.SizeCheck(Figures.Entities.IFigure)">
+            <summary>
+            Method to check if figure fit in current figure.
+            </summary>
+            <param name="figure">Figure to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.ToString">
+            <summary>
+            Method to get string.
+            </summary>
+            <returns>String "Name;Sides;Color;Perimeter;Square"</returns>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.Equals(System.Object)">
+            <summary>
+            Method to compare figures.
+            </summary>
+            <param name="obj">Figure to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.RectangleFigure.GetHashCode">
+            <summary>
+            Method to get hashcode.
+            </summary>
+            <returns>Integer hashcode.</returns>
+        </member>
+        <member name="T:Figures.Entities.TriangleFigure">
+            <summary>
+            Triangle figure class.
+            </summary>
+        </member>
+        <member name="F:Figures.Entities.TriangleFigure.color">
+            <summary>
+            Color of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.TriangleFigure.Name">
+            <summary>
+            Property to get and set figure name.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.TriangleFigure.Side">
+            <summary>
+            Property to get side array of figure.
+            </summary>
+        </member>
+        <member name="P:Figures.Entities.TriangleFigure.Color">
+            <summary>
+            Property to get figure color.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.#ctor(System.String,System.Double[])">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Figure name.</param>
+            <param name="side">Figure sides array.</param>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.Perimeter">
+            <summary>
+            Method to get figure perimeter.
+            </summary>
+            <returns>Figure perimeter in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.Square">
+            <summary>
+            Method to get figure square.
+            </summary>
+            <returns>Figure square in double.</returns>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.Paint(System.String)">
+            <summary>
+            Method to paint figure.
+            </summary>
+            <param name="paint">Paint color.</param>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.SizeCheck(Figures.Entities.IFigure)">
+            <summary>
+            Method to check if figure fit in current figure.
+            </summary>
+            <param name="figure">Figure to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.ToString">
+            <summary>
+            Method to get string.
+            </summary>
+            <returns>String "Name;Side;Color;Perimeter;Square"</returns>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.Equals(System.Object)">
+            <summary>
+            Method to compare figures.
+            </summary>
+            <param name="obj">Figure to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Figures.Entities.TriangleFigure.GetHashCode">
+            <summary>
+            Method to get hashcode.
+            </summary>
+            <returns>Integer hashcode.</returns>
+        </member>
+    </members>
+</doc>

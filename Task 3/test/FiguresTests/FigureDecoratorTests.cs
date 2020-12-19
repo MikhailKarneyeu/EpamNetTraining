@@ -3,8 +3,14 @@ using Figures.Entities;
 
 namespace FiguresTests
 {
-    class FigureDecoratorTests
+    /// <summary>
+    /// Class to test decorator entities of Figures class.
+    /// </summary>
+    public  class FigureDecoratorTests
     {
+        /// <summary>
+        /// Paint method of FilmFigure test.
+        /// </summary>
         [Test]
         public void FilmFigurePaintTest()
         {
@@ -17,6 +23,9 @@ namespace FiguresTests
             Assert.That(ex.Message, Is.EqualTo("Figure cant be painted."));
         }
 
+        /// <summary>
+        /// Paint method of PaperFigure test.
+        /// </summary>
         [Test]
         public void PaperFigurePaintTest()
         {
@@ -28,6 +37,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.Color == ColorsEnum.Red.ToString());
         }
 
+        /// <summary>
+        /// Second paint of PaperFigure test.
+        /// </summary>
         [Test]
         public void PaperFigureSecondPaintTest()
         {
@@ -41,6 +53,9 @@ namespace FiguresTests
             Assert.That(ex.Message, Is.EqualTo("Figure is painted."));
         }
 
+        /// <summary>
+        /// Paint method of PlasticFigure test.
+        /// </summary>
         [Test]
         public void PlasticFigurePaintTest()
         {
@@ -52,6 +67,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.Color == ColorsEnum.Red.ToString());
         }
 
+        /// <summary>
+        /// Cut figure from PaperFigure costructor test.
+        /// </summary>
         [Test]
         public void PaperFigureConstructorCutTest()
         {
@@ -65,6 +83,9 @@ namespace FiguresTests
             Assert.IsTrue(cutedFigure.Equals(testFigure));
         }
 
+        /// <summary>
+        /// Cut figure from PaperFigure costructor fail test.
+        /// </summary>
         [Test]
         public void PaperFigureConstructorCutFailTest()
         {
@@ -78,6 +99,9 @@ namespace FiguresTests
             Assert.That(ex.Message, Is.EqualTo("Original figure is too small."));
         }
 
+        /// <summary>
+        /// Cut figure from FilmFigure costructor fail test.
+        /// </summary>
         [Test]
         public void FilmFigureConstructorCutFailTest()
         {
@@ -91,6 +115,9 @@ namespace FiguresTests
             Assert.That(ex.Message, Is.EqualTo("Original figure is too small."));
         }
 
+        /// <summary>
+        /// Cut figure from PlasticFigure costructor fail test.
+        /// </summary>
         [Test]
         public void PlasticFigureConstructorCutFailTest()
         {

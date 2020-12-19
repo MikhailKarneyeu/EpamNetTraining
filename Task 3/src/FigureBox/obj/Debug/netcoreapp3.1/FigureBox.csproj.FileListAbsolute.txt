@@ -10,3 +10,5 @@ E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureB
 E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\Figures.dll
 E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\Figures.pdb
 E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\obj\Debug\netcoreapp3.1\FigureBox.csproj.CopyComplete
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\FigureBox.xml
+E:\Docs\Git\EpamNetTraining\Task 3\src\FigureBox\bin\Debug\netcoreapp3.1\Figures.xml

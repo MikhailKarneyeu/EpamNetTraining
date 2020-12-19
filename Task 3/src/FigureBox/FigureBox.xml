@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FigureBox</name>
+    </assembly>
+    <members>
+        <member name="T:FigureBox.FigureContainException">
+            <summary>
+            Figure is already in box exception.
+            </summary>
+        </member>
+        <member name="M:FigureBox.FigureContainException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:FigureBox.FigureContainException.#ctor(System.String)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:FigureBox.FigureContainException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="inner">Exception inner object.</param>
+        </member>
+        <member name="T:FigureBox.FiguresBox">
+            <summary>
+            Box for figures class.
+            </summary>
+        </member>
+        <member name="M:FigureBox.FiguresBox.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:FigureBox.FiguresBox.AddFigure(Figures.Entities.FigureDecorator)">
+            <summary>
+            Figure add method.
+            </summary>
+            <param name="figure">Figure to add.</param>
+        </member>
+        <member name="P:FigureBox.FiguresBox.Figures">
+            <summary>
+            Property to get figures list.
+            </summary>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetById(System.Int32)">
+            <summary>
+            Method to get figure by list index.
+            </summary>
+            <param name="index">Index in list.</param>
+            <returns>Figure in index position.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.ExtractById(System.Int32)">
+            <summary>
+            Method to extract figure from list.
+            </summary>
+            <param name="index">Index in list.</param>
+            <returns>Figure in index position.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.ReplaceById(System.Int32,Figures.Entities.FigureDecorator)">
+            <summary>
+            Method to replace figure by index.
+            </summary>
+            <param name="index">Index in list.</param>
+            <param name="figure">Figure to place.</param>
+        </member>
+        <member name="M:FigureBox.FiguresBox.FindEqual(Figures.Entities.FigureDecorator)">
+            <summary>
+            Method to find figure with equal parameters.
+            </summary>
+            <param name="figure">Figure to search.</param>
+            <returns>Figure with equal parameters.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.FigureCount">
+            <summary>
+            Method to get figures count.
+            </summary>
+            <returns>Integer count of figures.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetSquareSumm">
+            <summary>
+            Method to get square summ of all figures.
+            </summary>
+            <returns>Square summ in double.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetPerimeterSumm">
+            <summary>
+            Method to get perimeter summ of all figures.
+            </summary>
+            <returns>Perimeter summ in double.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetCircleFigures">
+            <summary>
+            Method to get circle figures.
+            </summary>
+            <returns>List of circle figures.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetFilmFigures">
+            <summary>
+            Method to get film figures.
+            </summary>
+            <returns>List of film figures.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.GetPlasticUncolored">
+            <summary>
+            Method to get plastic uncolored figures.
+            </summary>
+            <returns>List of plastic uncolored figures.</returns>
+        </member>
+        <member name="M:FigureBox.FiguresBox.SaveFigures(System.String,System.String)">
+            <summary>
+            Method to save figures in xml file.
+            </summary>
+            <param name="typeName">Form of figures to save.</param>
+            <param name="filePath">Path to file.</param>
+        </member>
+        <member name="M:FigureBox.FiguresBox.ReadFigures(System.String)">
+            <summary>
+            Method to read figures from xml file.
+            </summary>
+            <param name="filePath">Path to file.</param>
+        </member>
+        <member name="T:FigureBox.RootFigureBox">
+            <summary>
+            Class for figure list serializing.
+            </summary>
+        </member>
+        <member name="M:FigureBox.RootFigureBox.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="P:FigureBox.RootFigureBox.Figures">
+            <summary>
+            Property to store figures to serialize.
+            </summary>
+        </member>
+    </members>
+</doc>

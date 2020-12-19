@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FigureBoxTests</name>
+    </assembly>
+    <members>
+        <member name="T:FigureBoxTests.FiguresBoxTests">
+            <summary>
+            Class to test figure box methods.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxAddFigureTest">
+            <summary>
+            AddFigure method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxAddFigureFailTest">
+            <summary>
+            AddFigure method fail test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetByIdTest">
+            <summary>
+            GetById method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxExtractByIdTest">
+            <summary>
+            ExtractById method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxReplaceByIdTest">
+            <summary>
+            ReplaceById method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxFindEqualTest">
+            <summary>
+            FindEqual method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxFigureCountTest">
+            <summary>
+            FigureCount method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetSquareSummTest">
+            <summary>
+            GetSquareSumm method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetPerimeterSummTest">
+            <summary>
+            GetPerimeterSumm method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetCircleFiguresTest">
+            <summary>
+            GetCirckeFigures method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetFilmFiguresTest">
+            <summary>
+            GetFilmFigures method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxGetPlasticUncoloredTest">
+            <summary>
+            GetPlasticUncolored method test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxSaveReadFiguresTest">
+            <summary>
+            SaveFigures and ReadFigures methods test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxSaveCirclesTest">
+            <summary>
+            SaveFigures method with circles test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxTrianglesTest">
+            <summary>
+            SaveFigures method with triangules test.
+            </summary>
+        </member>
+        <member name="M:FigureBoxTests.FiguresBoxTests.FiguresBoxSaveRectanglesTest">
+            <summary>
+            SaveFigures method with rectangles test.
+            </summary>
+        </member>
+    </members>
+</doc>

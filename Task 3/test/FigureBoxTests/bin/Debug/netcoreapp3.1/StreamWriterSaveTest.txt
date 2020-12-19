@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfFigureDecorator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+<RootFigureBox xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FilmFigure>
+    <Figure FigureType="TriangleFigure">
+      <Name>Film triangle</Name>
+      <Color />
+      <Side>
+        <Side>2</Side>
+      </Side>
+    </Figure>
+  </FilmFigure>
+  <PaperFigure>
+    <Figure FigureType="TriangleFigure">
+      <Name>Paper triangle</Name>
+      <Color>Red</Color>
+      <Side>
+        <Side>3</Side>
+      </Side>
+    </Figure>
+  </PaperFigure>
+</RootFigureBox>

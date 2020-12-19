@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FiguresTests</name>
+    </assembly>
+    <members>
+        <member name="T:FiguresTests.FigureDecoratorTests">
+            <summary>
+            Class to test decorator entities of Figures class.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.FilmFigurePaintTest">
+            <summary>
+            Paint method of FilmFigure test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PaperFigurePaintTest">
+            <summary>
+            Paint method of PaperFigure test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PaperFigureSecondPaintTest">
+            <summary>
+            Second paint of PaperFigure test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PlasticFigurePaintTest">
+            <summary>
+            Paint method of PlasticFigure test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PaperFigureConstructorCutTest">
+            <summary>
+            Cut figure from PaperFigure costructor test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PaperFigureConstructorCutFailTest">
+            <summary>
+            Cut figure from PaperFigure costructor fail test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.FilmFigureConstructorCutFailTest">
+            <summary>
+            Cut figure from FilmFigure costructor fail test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureDecoratorTests.PlasticFigureConstructorCutFailTest">
+            <summary>
+            Cut figure from PlasticFigure costructor fail test.
+            </summary>
+        </member>
+        <member name="T:FiguresTests.FigureTests">
+            <summary>
+            Class to test figures entities of Figures class.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.CircleSquareTest">
+             <summary>
+            Circle square method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.CirclePerimeterTest">
+             <summary>
+            Circle perimeter method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.RectangleSquareTest">
+             <summary>
+            Rectangle square method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.RectanglePerimeterTest">
+             <summary>
+            Rectangle perimeter method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.TriangleSquareTest">
+             <summary>
+            Triangle square method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.TrianglePerimeterTest">
+             <summary>
+            Triangle perimeter method test.
+             </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.CircleSizeCheckWithCircleTest">
+            <summary>
+            Circle SizeCheck method with circle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.CircleSizeCheckWithTriangleTest">
+            <summary>
+            Circle SizeCheck method with triangle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.CircleSizeCheckWithRectangleTest">
+            <summary>
+            Circle SizeCheck method with rectangle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.RectangleSizeCheckWithCircleTest">
+            <summary>
+            Rectangle SizeCheck method with circle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.RectangleSizeCheckWithTriangleTest">
+            <summary>
+            Rectangle SizeCheck method with triangle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.RectangleSizeCheckWithRectangleTest">
+            <summary>
+            Rectangle SizeCheck method with rectangle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.TriangleSizeCheckWithCircleTest">
+            <summary>
+            Triangle SizeCheck method with circle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.TriangleSizeCheckWithTriangleTest">
+            <summary>
+            Triangle SizeCheck method with triangle test.
+            </summary>
+        </member>
+        <member name="M:FiguresTests.FigureTests.TriangleSizeCheckWithRectangleTest">
+            <summary>
+            Triangle SizeCheck method with rectangle test.
+            </summary>
+        </member>
+    </members>
+</doc>

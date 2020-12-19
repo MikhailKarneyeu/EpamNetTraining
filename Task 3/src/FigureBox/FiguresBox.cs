@@ -8,15 +8,25 @@ using System.Xml.Serialization;
 
 namespace FigureBox
 {
+    /// <summary>
+    /// Box for figures class.
+    /// </summary>
     public class FiguresBox
     {
         private List<FigureDecorator> figures;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public FiguresBox()
         {
             figures = new List<FigureDecorator>(20);
         }
 
+        /// <summary>
+        /// Figure add method.
+        /// </summary>
+        /// <param name="figure">Figure to add.</param>
         public void AddFigure(FigureDecorator figure)
         {
             if (!figures.Contains(figure))
@@ -25,6 +35,9 @@ namespace FigureBox
                 throw new FigureContainException("This figure is in the box already.");
         }
 
+        /// <summary>
+        /// Property to get figures list.
+        /// </summary>
         public List<FigureDecorator> Figures
         {
             get
@@ -33,11 +46,21 @@ namespace FigureBox
             }
         }
 
+        /// <summary>
+        /// Method to get figure by list index.
+        /// </summary>
+        /// <param name="index">Index in list.</param>
+        /// <returns>Figure in index position.</returns>
         public IFigure GetById(int index)
         {
             return figures[index];
         }
 
+        /// <summary>
+        /// Method to extract figure from list.
+        /// </summary>
+        /// <param name="index">Index in list.</param>
+        /// <returns>Figure in index position.</returns>
         public IFigure ExtractById(int index)
         {
             IFigure result = figures[index];
@@ -45,21 +68,39 @@ namespace FigureBox
             return result;
         }
 
+        /// <summary>
+        /// Method to replace figure by index.
+        /// </summary>
+        /// <param name="index">Index in list.</param>
+        /// <param name="figure">Figure to place.</param>
         public void ReplaceById(int index, FigureDecorator figure)
         {
             figures[index] = figure;
         }
 
+        /// <summary>
+        /// Method to find figure with equal parameters.
+        /// </summary>
+        /// <param name="figure">Figure to search.</param>
+        /// <returns>Figure with equal parameters.</returns>
         public IFigure FindEqual(FigureDecorator figure)
         {
             return figures.Find(e => e.GetType()==figure.GetType() && e.Side.SequenceEqual(figure.Side) && e.Color==figure.Color);
         }
 
+        /// <summary>
+        /// Method to get figures count.
+        /// </summary>
+        /// <returns>Integer count of figures.</returns>
         public int FigureCount()
         {
             return figures.Count;
         }
 
+        /// <summary>
+        /// Method to get square summ of all figures.
+        /// </summary>
+        /// <returns>Square summ in double.</returns>
         public double GetSquareSumm()
         {
             double summ = 0;
@@ -70,6 +111,10 @@ namespace FigureBox
             return summ;
         }
 
+        /// <summary>
+        /// Method to get perimeter summ of all figures.
+        /// </summary>
+        /// <returns>Perimeter summ in double.</returns>
         public double GetPerimeterSumm()
         {
             double summ = 0;
@@ -80,60 +125,108 @@ namespace FigureBox
             return summ;
         }
 
+        /// <summary>
+        /// Method to get circle figures.
+        /// </summary>
+        /// <returns>List of circle figures.</returns>
         public List<FigureDecorator> GetCircleFigures()
         {
             List<FigureDecorator> circles = figures.FindAll(e => e.Figure.GetType()==typeof(CircleFigure));
             return circles;
         }
 
+        /// <summary>
+        /// Method to get film figures.
+        /// </summary>
+        /// <returns>List of film figures.</returns>
         public List<FigureDecorator> GetFilmFigures()
         {
             List<FigureDecorator> filmFigures = figures.FindAll(e => e.GetType() == typeof(FilmFigure));
             return filmFigures;
         }
 
+        /// <summary>
+        /// Method to get plastic uncolored figures.
+        /// </summary>
+        /// <returns>List of plastic uncolored figures.</returns>
         public List<FigureDecorator> GetPlasticUncolored()
         {
             List<FigureDecorator> plasticFigures = figures.FindAll(e => e.GetType() == typeof(PlasticFigure)&&e.Figure.Color==null);
             return plasticFigures;
         }
 
-        public void SaveFiguresStreamWriter(string typeName, string filePath)
+        /// <summary>
+        /// Method to save figures in xml file.
+        /// </summary>
+        /// <param name="typeName">Form of figures to save.</param>
+        /// <param name="filePath">Path to file.</param>
+        public void SaveFigures(string typeName, string filePath)
         {
-            switch(typeName)
+            switch (typeName)
             {
                 case "CircleFigure":
-                    XmlSerializer figureSerializer = new XmlSerializer(typeof(List<CircleFigure>));
+                    XmlSerializer rootBoxSerializer = new XmlSerializer(typeof(RootFigureBox));
+                    RootFigureBox box = new RootFigureBox
+                    {
+                        Figures = figures.FindAll(e => e.Figure.GetType() == typeof(CircleFigure))
+                    };
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
-                        figureSerializer.Serialize(writer, figures.FindAll(e => e.Figure.GetType()==typeof(CircleFigure)));
+                        rootBoxSerializer.Serialize(writer, box);
                     }
                     break;
                 case "RectangleFigure":
-                    figureSerializer = new XmlSerializer(typeof(List<RectangleFigure>));
+                    rootBoxSerializer = new XmlSerializer(typeof(RootFigureBox));
+                    box = new RootFigureBox
+                    {
+                        Figures = figures.FindAll(e => e.Figure.GetType() == typeof(RectangleFigure))
+                    };
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
-                        figureSerializer.Serialize(writer, figures.FindAll(e => e.Figure.GetType() == typeof(RectangleFigure)));
+                        rootBoxSerializer.Serialize(writer, box);
+                    }
+                    break;
+                case "TriangleFigure":
+                    rootBoxSerializer = new XmlSerializer(typeof(RootFigureBox));
+                    box = new RootFigureBox
+                    {
+                        Figures = figures.FindAll(e => e.Figure.GetType() == typeof(TriangleFigure))
+                    };
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        rootBoxSerializer.Serialize(writer, box);
                     }
                     break;
                 default:
-                    figureSerializer = new XmlSerializer(figures.GetType());
+                    rootBoxSerializer = new XmlSerializer(typeof(RootFigureBox));
+                    box = new RootFigureBox
+                    {
+                        Figures = figures
+                    };
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
-                        figureSerializer.Serialize(writer, figures);
+                        rootBoxSerializer.Serialize(writer, box);
                     }
                     break;
             }
         }
 
-        public void ReadFiguresStreamWriter(string filePath)
+        /// <summary>
+        /// Method to read figures from xml file.
+        /// </summary>
+        /// <param name="filePath">Path to file.</param>
+        public void ReadFigures(string filePath)
         {
-            using (var reader = new StreamReader(filePath))
+            RootFigureBox box = new RootFigureBox
             {
-                XmlSerializer deserializer = new XmlSerializer(figures.GetType());
-                figures = (List<FigureDecorator>)deserializer.Deserialize(reader);
+                Figures = figures
+            };
+            XmlSerializer figureDeserializer = new XmlSerializer(typeof(RootFigureBox));
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                box = (RootFigureBox)figureDeserializer.Deserialize(reader);
             }
+            figures = box.Figures;
         }
-
     }
 }

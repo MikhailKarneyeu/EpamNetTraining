@@ -7,3 +7,4 @@ E:\Docs\Git\EpamNetTraining\Task 3\src\Figures\obj\Debug\netcoreapp3.1\Figures.A
 E:\Docs\Git\EpamNetTraining\Task 3\src\Figures\obj\Debug\netcoreapp3.1\Figures.csproj.CoreCompileInputs.cache
 E:\Docs\Git\EpamNetTraining\Task 3\src\Figures\obj\Debug\netcoreapp3.1\Figures.dll
 E:\Docs\Git\EpamNetTraining\Task 3\src\Figures\obj\Debug\netcoreapp3.1\Figures.pdb
+E:\Docs\Git\EpamNetTraining\Task 3\src\Figures\bin\Debug\netcoreapp3.1\Figures.xml

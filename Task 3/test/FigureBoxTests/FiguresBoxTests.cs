@@ -6,8 +6,14 @@ using System.Linq;
 
 namespace FigureBoxTests
 {
+    /// <summary>
+    /// Class to test figure box methods.
+    /// </summary>
     public class FiguresBoxTests
     {
+        /// <summary>
+        /// AddFigure method test.
+        /// </summary>
         [Test]
         public void FiguresBoxAddFigureTest()
         {
@@ -25,6 +31,9 @@ namespace FigureBoxTests
             Assert.IsTrue(box.Figures.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// AddFigure method fail test.
+        /// </summary>
         [Test]
         public void FiguresBoxAddFigureFailTest()
         {
@@ -39,6 +48,9 @@ namespace FigureBoxTests
             Assert.That(ex.Message, Is.EqualTo("This figure is in the box already."));
         }
 
+        /// <summary>
+        /// GetById method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetByIdTest()
         {
@@ -56,6 +68,9 @@ namespace FigureBoxTests
             Assert.IsTrue(figure.Equals(filmFigure));
         }
 
+        /// <summary>
+        /// ExtractById method test.
+        /// </summary>
         [Test]
         public void FiguresBoxExtractByIdTest()
         {
@@ -74,6 +89,9 @@ namespace FigureBoxTests
             Assert.IsTrue(figure.Equals(filmFigure)&&box.Figures.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// ReplaceById method test.
+        /// </summary>
         [Test]
         public void FiguresBoxReplaceByIdTest()
         {
@@ -92,6 +110,9 @@ namespace FigureBoxTests
             Assert.IsTrue(figure.Equals(filmFigure) && box.Figures.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// FindEqual method test.
+        /// </summary>
         [Test]
         public void FiguresBoxFindEqualTest()
         {
@@ -108,8 +129,11 @@ namespace FigureBoxTests
             Assert.IsTrue(figure.Equals(paperFigure));
         }
 
+        /// <summary>
+        /// FigureCount method test.
+        /// </summary>
         [Test]
-        public void FiguresBoxCountTest()
+        public void FiguresBoxFigureCountTest()
         {
             //Arrange
             PlasticFigure plasticFigure = new PlasticFigure("Plastic circle", new CircleFigure("Figure", new double[1] { 1 }));
@@ -124,6 +148,9 @@ namespace FigureBoxTests
             Assert.IsTrue(testFigureCount == figureCount);
         }
 
+        /// <summary>
+        /// GetSquareSumm method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetSquareSummTest()
         {
@@ -142,6 +169,9 @@ namespace FigureBoxTests
             Assert.IsTrue(sqaureSumm == testSquareSumm);
         }
 
+        /// <summary>
+        /// GetPerimeterSumm method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetPerimeterSummTest()
         {
@@ -160,6 +190,9 @@ namespace FigureBoxTests
             Assert.IsTrue(perimeterSumm == testPerimeterSumm);
         }
 
+        /// <summary>
+        /// GetCirckeFigures method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetCircleFiguresTest()
         {
@@ -180,6 +213,9 @@ namespace FigureBoxTests
             Assert.IsTrue(circleList.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// GetFilmFigures method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetFilmFiguresTest()
         {
@@ -200,6 +236,9 @@ namespace FigureBoxTests
             Assert.IsTrue(filmList.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// GetPlasticUncolored method test.
+        /// </summary>
         [Test]
         public void FiguresBoxGetPlasticUncoloredTest()
         {
@@ -221,28 +260,98 @@ namespace FigureBoxTests
             Assert.IsTrue(uncoloredList.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// SaveFigures and ReadFigures methods test.
+        /// </summary>
         [Test]
-        public void FiguresBoxSaveFiguresStreamWriterTest()
+        public void FiguresBoxSaveReadFiguresTest()
         {
             //Arrange
             PlasticFigure plasticFigure = new PlasticFigure("Plastic circle", new CircleFigure("Figure", new double[1] { 1 }));
-            FilmFigure filmFigure = new FilmFigure("Film circle", new CircleFigure("Figure", new double[1] { 1 }));
-            PaperFigure paperFigure = new PaperFigure("Paper triangle", new TriangleFigure("Figure", new double[1] { 1 }));
-            PlasticFigure plasticFigure2 = new PlasticFigure("Plastic rectangle", new RectangleFigure("Figure", new double[2] { 1, 2 }));
-            plasticFigure2.Paint(ColorsEnum.Red.ToString());
+            FilmFigure filmFigure = new FilmFigure("Film circle", new CircleFigure("Figure", new double[1] { 2 }));
+            PaperFigure paperFigure = new PaperFigure("Paper triangle", new TriangleFigure("Figure", new double[1] { 3 }));
+            PlasticFigure plasticFigure2 = new PlasticFigure("Plastic rectangle", new RectangleFigure("Figure", new double[2] { 4, 4 }));
+            paperFigure.Paint(ColorsEnum.Red.ToString());
             List<FigureDecorator> testList = new List<FigureDecorator>(20) { plasticFigure, filmFigure, paperFigure};
             FiguresBox box = new FiguresBox();
             box.AddFigure(plasticFigure);
             box.AddFigure(filmFigure);
             box.AddFigure(paperFigure);
             //Act
-            box.SaveFiguresStreamWriter(null, "StreamWriterSaveTest.txt");
+            box.SaveFigures(null, "StreamWriterSaveTest.txt");
             box.AddFigure(plasticFigure2);
-            box.ReadFiguresStreamWriter("StreamWriterSaveTest.txt");
+            box.ReadFigures("StreamWriterSaveTest.txt");
             //Assert
             Assert.IsTrue(box.Figures.SequenceEqual(testList));
         }
 
+        /// <summary>
+        /// SaveFigures method with circles test.
+        /// </summary>
+        [Test]
+        public void FiguresBoxSaveCirclesTest()
+        {
+            //Arrange
+            PlasticFigure plasticFigure = new PlasticFigure("Plastic circle", new CircleFigure("Figure", new double[1] { 1 }));
+            FilmFigure filmFigure = new FilmFigure("Film circle", new CircleFigure("Figure", new double[1] { 2 }));
+            PaperFigure paperFigure = new PaperFigure("Paper triangle", new TriangleFigure("Figure", new double[1] { 3 }));
+            paperFigure.Paint(ColorsEnum.Red.ToString());
+            List<FigureDecorator> testList = new List<FigureDecorator>(20) { plasticFigure, filmFigure};
+            FiguresBox box = new FiguresBox();
+            box.AddFigure(plasticFigure);
+            box.AddFigure(filmFigure);
+            box.AddFigure(paperFigure);
+            //Act
+            box.SaveFigures("CircleFigure", "StreamWriterSaveTest.txt");
+            box.ReadFigures("StreamWriterSaveTest.txt");
+            //Assert
+            Assert.IsTrue(box.Figures.SequenceEqual(testList));
+        }
 
+        /// <summary>
+        /// SaveFigures method with triangules test.
+        /// </summary>
+        [Test]
+        public void FiguresBoxTrianglesTest()
+        {
+            //Arrange
+            PlasticFigure plasticFigure = new PlasticFigure("Plastic circle", new CircleFigure("Figure", new double[1] { 1 }));
+            FilmFigure filmFigure = new FilmFigure("Film triangle", new TriangleFigure("Figure", new double[1] { 2 }));
+            PaperFigure paperFigure = new PaperFigure("Paper triangle", new TriangleFigure("Figure", new double[1] { 3 }));
+            paperFigure.Paint(ColorsEnum.Red.ToString());
+            List<FigureDecorator> testList = new List<FigureDecorator>(20) { filmFigure, paperFigure };
+            FiguresBox box = new FiguresBox();
+            box.AddFigure(plasticFigure);
+            box.AddFigure(filmFigure);
+            box.AddFigure(paperFigure);
+            //Act
+            box.SaveFigures("TriangleFigure", "StreamWriterSaveTest.txt");
+            box.ReadFigures("StreamWriterSaveTest.txt");
+            //Assert
+            Assert.IsTrue(box.Figures.SequenceEqual(testList));
+        }
+
+        /// <summary>
+        /// SaveFigures method with rectangles test.
+        /// </summary>
+        [Test]
+        public void FiguresBoxSaveRectanglesTest()
+        {
+            //Arrange
+            PlasticFigure plasticFigure = new PlasticFigure("Plastic rectangle", new RectangleFigure("Figure", new double[2] { 1, 2 }));
+            FilmFigure filmFigure = new FilmFigure("Film circle", new CircleFigure("Figure", new double[1] { 2 }));
+            PaperFigure paperFigure = new PaperFigure("Paper rectagle", new RectangleFigure("Figure", new double[2] { 3 , 1}));
+            paperFigure.Paint(ColorsEnum.Red.ToString());
+            List<FigureDecorator> testList = new List<FigureDecorator>(20) { plasticFigure, paperFigure };
+            FiguresBox box = new FiguresBox();
+            box.AddFigure(plasticFigure);
+            box.AddFigure(filmFigure);
+            box.AddFigure(paperFigure);
+            //Act
+            box.SaveFigures("RectangleFigure", "StreamWriterSaveTest.txt");
+            box.ReadFigures("StreamWriterSaveTest.txt");
+            //Assert
+            Assert.IsTrue(box.Figures.SequenceEqual(testList));
+        }
     }
 }

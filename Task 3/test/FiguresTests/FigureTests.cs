@@ -4,8 +4,14 @@ using System;
 
 namespace FiguresTests
 {
-    class FigureTests
+    /// <summary>
+    /// Class to test figures entities of Figures class.
+    /// </summary>
+    public class FigureTests
     {
+        /// <summary>
+        ///Circle square method test.
+        /// </summary>
         [Test]
         public void CircleSquareTest()
         {
@@ -19,6 +25,9 @@ namespace FiguresTests
             Assert.IsTrue(testSquare == square);
         }
 
+        /// <summary>
+        ///Circle perimeter method test.
+        /// </summary>
         [Test]
         public void CirclePerimeterTest()
         {
@@ -32,6 +41,9 @@ namespace FiguresTests
             Assert.IsTrue(testPerimeter == square);
         }
 
+        /// <summary>
+        ///Rectangle square method test.
+        /// </summary>
         [Test]
         public void RectangleSquareTest()
         {
@@ -45,6 +57,9 @@ namespace FiguresTests
             Assert.IsTrue(testSquare == square);
         }
 
+        /// <summary>
+        ///Rectangle perimeter method test.
+        /// </summary>
         [Test]
         public void RectanglePerimeterTest()
         {
@@ -58,6 +73,9 @@ namespace FiguresTests
             Assert.IsTrue(testPerimeter == perimeter);
         }
 
+        /// <summary>
+        ///Triangle square method test.
+        /// </summary>
         [Test]
         public void TriangleSquareTest()
         {
@@ -71,6 +89,9 @@ namespace FiguresTests
             Assert.IsTrue(testSquare == square);
         }
 
+        /// <summary>
+        ///Triangle perimeter method test.
+        /// </summary>
         [Test]
         public void TrianglePerimeterTest()
         {
@@ -84,6 +105,9 @@ namespace FiguresTests
             Assert.IsTrue(testPerimeter == perimeter);
         }
 
+        /// <summary>
+        /// Circle SizeCheck method with circle test.
+        /// </summary>
         [Test]
         public void CircleSizeCheckWithCircleTest()
         {
@@ -97,6 +121,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Circle SizeCheck method with triangle test.
+        /// </summary>
         [Test]
         public void CircleSizeCheckWithTriangleTest()
         {
@@ -110,6 +137,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Circle SizeCheck method with rectangle test.
+        /// </summary>
         [Test]
         public void CircleSizeCheckWithRectangleTest()
         {
@@ -123,6 +153,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Rectangle SizeCheck method with circle test.
+        /// </summary>
         [Test]
         public void RectangleSizeCheckWithCircleTest()
         {
@@ -136,6 +169,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Rectangle SizeCheck method with triangle test.
+        /// </summary>
         [Test]
         public void RectangleSizeCheckWithTriangleTest()
         {
@@ -149,6 +185,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Rectangle SizeCheck method with rectangle test.
+        /// </summary>
         [Test]
         public void RectangleSizeCheckWithRectangleTest()
         {
@@ -162,6 +201,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Triangle SizeCheck method with circle test.
+        /// </summary>
         [Test]
         public void TriangleSizeCheckWithCircleTest()
         {
@@ -175,6 +217,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Triangle SizeCheck method with triangle test.
+        /// </summary>
         [Test]
         public void TriangleSizeCheckWithTriangleTest()
         {
@@ -188,6 +233,9 @@ namespace FiguresTests
             Assert.IsTrue(figure.SizeCheck(figureToCut));
         }
 
+        /// <summary>
+        /// Triangle SizeCheck method with rectangle test.
+        /// </summary>
         [Test]
         public void TriangleSizeCheckWithRectangleTest()
         {

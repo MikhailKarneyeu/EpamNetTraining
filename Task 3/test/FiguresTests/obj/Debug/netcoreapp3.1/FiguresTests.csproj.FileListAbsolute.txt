@@ -96,3 +96,5 @@ E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\obj\Debug\netcoreapp3.1\Fig
 E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\obj\Debug\netcoreapp3.1\FiguresTests.dll
 E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\obj\Debug\netcoreapp3.1\FiguresTests.pdb
 E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\obj\Debug\netcoreapp3.1\FiguresTests.genruntimeconfig.cache
+E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\bin\Debug\netcoreapp3.1\FiguresTests.xml
+E:\Docs\Git\EpamNetTraining\Task 3\test\FiguresTests\bin\Debug\netcoreapp3.1\Figures.xml

@@ -4,8 +4,26 @@ using System.Text;
 
 namespace Figures.Entities
 {
+    /// <summary>
+    /// Colors enumeration.
+    /// </summary>
     public enum ColorsEnum
     {
-        Red, Blue, Greed, Orange
+        /// <summary>
+        /// Red color.
+        /// </summary>
+        Red, 
+        /// <summary>
+        /// Blue color.
+        /// </summary>
+        Blue, 
+        /// <summary>
+        /// Green color.
+        /// </summary>
+        Green, 
+        /// <summary>
+        /// Orange color.
+        /// </summary>
+        Orange
     };
 }
