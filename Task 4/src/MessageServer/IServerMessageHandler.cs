@@ -8,6 +8,7 @@ namespace MessageServer
 {
     public interface IServerMessageHandler
     {
+        public Dictionary<EndPoint, List<string>> GetMessageDictionary();
         void HandleMessage(string message, EndPoint socket);
     }
 }

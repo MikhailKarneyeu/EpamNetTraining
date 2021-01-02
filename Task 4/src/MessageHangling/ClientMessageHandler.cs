@@ -2,15 +2,21 @@
 using NickBuhro.Translit;
 using System;
 
-namespace MessageHangling
+namespace MessageHandling
 {
     public class ClientMessageHandler : IClientMessageHandler
     {
-        public string LastMessage { get; private set; }
+        private string lastMessage;
+
+        public string GetLastMessage()
+        {
+            return lastMessage;
+        }
+
         public string HandleMessage(string message)
         {
             message = Transliteration.CyrillicToLatin(message, Language.Russian);
-            LastMessage = message;
+            lastMessage = message;
             return message;
         }
     }

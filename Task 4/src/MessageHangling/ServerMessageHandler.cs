@@ -5,17 +5,27 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace MessageHangling
+namespace MessageHandling
 {
     public class ServerMessageHandler : IServerMessageHandler
     {
-        public Dictionary<EndPoint, List<string>> Messages { get; private set; }
+        public ServerMessageHandler()
+        {
+            messages = new Dictionary<EndPoint, List<string>>();
+        }
+        private Dictionary<EndPoint, List<string>> messages;
+
+        public Dictionary<EndPoint, List<string>> GetMessageDictionary()
+        {
+            return messages;
+        }
+
         public void HandleMessage(string message, EndPoint endPoint)
         {
-            if (Messages.ContainsKey(endPoint))
-                Messages[endPoint].Add(message);
+            if (messages.ContainsKey(endPoint))
+                messages[endPoint].Add(message);
             else 
-                Messages.Add(endPoint, new List<string>() { message });
+                messages.Add(endPoint, new List<string>() { message });
         }
     }
 }

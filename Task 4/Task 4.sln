@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C93D394B-EE1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{65226DB3-F8F6-4018-93FD-0C8FC904A216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageServer", "src\MessageServer\MessageServer.csproj", "{86554F6D-2598-48E9-9EE4-A98D7059EB23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageServer", "src\MessageServer\MessageServer.csproj", "{86554F6D-2598-48E9-9EE4-A98D7059EB23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageServerTests", "test\MessageServerTests\MessageServerTests.csproj", "{E901474F-ABE8-4C96-9EEA-8C723BEF2E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageServerTests", "test\MessageServerTests\MessageServerTests.csproj", "{E901474F-ABE8-4C96-9EEA-8C723BEF2E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageHangling", "src\MessageHangling\MessageHangling.csproj", "{5165B1F9-FECD-4292-9012-F71F4F89032F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageHandling", "src\MessageHangling\MessageHandling.csproj", "{5165B1F9-FECD-4292-9012-F71F4F89032F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageHanglingTests", "test\MessageHanglingTests\MessageHanglingTests.csproj", "{F18BDBB1-2F46-4ED4-8476-DB63A721AEDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageHanglingTests", "test\MessageHanglingTests\MessageHanglingTests.csproj", "{F18BDBB1-2F46-4ED4-8476-DB63A721AEDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
