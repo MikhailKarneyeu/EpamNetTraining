@@ -5,13 +5,33 @@ using System.Xml.Serialization;
 
 namespace GenericBinaryTree
 {
+    /// <summary>
+    /// Class to store and operate binary tree.
+    /// </summary>
+    /// <typeparam name="T">Type of stored object.</typeparam>
     public class BinaryTree<T> where T : IComparable<T>, IXmlSerializable
     {
+        /// <summary>
+        /// Head node of a tree.
+        /// </summary>
         public TreeNode<T> Head { get; set; }
+
+        /// <summary>
+        /// Node count.
+        /// </summary>
         public int Count { get; set; }
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public BinaryTree()
         {
         }
+
+        /// <summary>
+        /// Object adding operation.
+        /// </summary>
+        /// <param name="value">Object to store in node.</param>
         public void Add(T value)
         {  
             if (Head == null)
@@ -24,6 +44,7 @@ namespace GenericBinaryTree
             }
             Count++;
         }
+
         private void AddNode(TreeNode<T> node, T value)
         {
             if (value.CompareTo(node.Value) < 0)
@@ -48,11 +69,13 @@ namespace GenericBinaryTree
                     AddNode(node.Right, value);
                 }
             }
-            var result = node.Balance();
-            if (result != null)
-                Head = result;
+            Head = node.Balance(Head);
         }
-
+        /// <summary>
+        /// Operation to check if object contains in tree.
+        /// </summary>
+        /// <param name="value">Object to check.</param>
+        /// <returns></returns>
         public bool Contains(T value)
         {
             return Find(value) != null;
@@ -81,6 +104,11 @@ namespace GenericBinaryTree
             return current;
         }
 
+        /// <summary>
+        /// Node with object removing operation.
+        /// </summary>
+        /// <param name="value">Object to remove.</param>
+        /// <returns></returns>
         public bool Remove(T value)
         {
             TreeNode<T> current;
@@ -178,27 +206,32 @@ namespace GenericBinaryTree
             }
             if (treeToBalance != null)
             {
-                var result = treeToBalance.Balance();
-                if (result != null)
-                    Head = result;
+                Head = treeToBalance.Balance(Head);
             }
             else
             {
                 if (Head != null)
                 {
-                    var result = Head.Balance();
-                    if (result != null)
-                        Head = result;
+                    Head = Head.Balance(Head);
                 }
             }
             return true;
 
         }
+
+        /// <summary>
+        /// Tree clearing opearation.
+        /// </summary>
         public void Clear()
         {
             Head = null;
             Count = 0;
         }
+
+        /// <summary>
+        /// Geting object in list.
+        /// </summary>
+        /// <returns>List of stored objects.</returns>
         public List<T> ToList()
         {
             List<T> list = new List<T>();
@@ -235,15 +268,21 @@ namespace GenericBinaryTree
             return list;
         }
 
+        /// <summary>
+        /// Saving to xml file operation.
+        /// </summary>
+        /// <param name="filePath">Path to file to save.</param>
         public void SaveToXmlFile(string filePath)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(BinaryTree<T>));
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                serializer.Serialize(writer, this);
-            }
+            using StreamWriter writer = new StreamWriter(filePath);
+            serializer.Serialize(writer, this);
         }
 
+        /// <summary>
+        /// Reading tree from xml file opearion.
+        /// </summary>
+        /// <param name="filePath">Path to xml file.</param>
         public void ReadFromXmlFile(string filePath)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(BinaryTree<T>));
@@ -287,9 +326,7 @@ namespace GenericBinaryTree
                         goLeftNext = false;
                     }
                 }
-                var result = Head.Balance();
-                if (result != null)
-                    Head = result;
+                Head = Head.Balance(Head);
             }
         }
     }

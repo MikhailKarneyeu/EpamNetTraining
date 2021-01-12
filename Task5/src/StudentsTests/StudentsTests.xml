@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StudentsTests</name>
+    </assembly>
+    <members>
+        <member name="T:StudentsTests.StudentsTest">
+            <summary>
+            Student test class.
+            </summary>
+        </member>
+        <member name="P:StudentsTests.StudentsTest.Name">
+            <summary>
+            Student name.
+            </summary>
+        </member>
+        <member name="P:StudentsTests.StudentsTest.TestName">
+            <summary>
+            Test name.
+            </summary>
+        </member>
+        <member name="P:StudentsTests.StudentsTest.Date">
+            <summary>
+            Test date.
+            </summary>
+        </member>
+        <member name="P:StudentsTests.StudentsTest.Grade">
+            <summary>
+            Student grade.
+            </summary>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.#ctor">
+            <summary>
+            Deafult constructor.
+            </summary>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.#ctor(System.String,System.String,System.DateTime,System.Int32)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="name">Student name.</param>
+            <param name="testName">Test name.</param>
+            <param name="date">Test date.</param>
+            <param name="grade">Student grade.</param>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.CompareTo(StudentsTests.StudentsTest)">
+            <summary>
+            Compare two tests method.
+            </summary>
+            <param name="other">Second test to compare.</param>
+            <returns>Comparison result</returns>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.GetSchema">
+            <summary>
+            Method to get xml schema.
+            </summary>
+            <returns>Null.</returns>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Method to deserialize test.
+            </summary>
+            <param name="reader">Xml reader object.</param>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to serialize test.
+            </summary>
+            <param name="writer">Xml writer object.</param>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.ToString">
+            <summary>
+            Method to get test in string.
+            </summary>
+            <returns>Name;Test name; Date; Grade</returns>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.Equals(System.Object)">
+            <summary>
+            Method to chech if test if equal to object.
+            </summary>
+            <param name="obj">Objcet to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:StudentsTests.StudentsTest.GetHashCode">
+            <summary>
+            Method to get hash code of test.
+            </summary>
+            <returns>Integer hash code.</returns>
+        </member>
+    </members>
+</doc>

@@ -67,9 +67,9 @@ namespace GenericBinaryTreeTests
                 tree.Add(list[i]);
             }
             //Act
-            tree.Add(list[list.Count - 1]);
+            tree.Add(list[^1]);
             //Assert
-            Assert.IsTrue(tree.Count == list.Count && tree.Contains(list[list.Count-1]));
+            Assert.IsTrue(tree.Count == list.Count && tree.Contains(list[^1]));
         }
 
         [Test,TestCaseSource(nameof(_testsLists))]
@@ -97,7 +97,7 @@ namespace GenericBinaryTreeTests
                 tree.Add(list[i]);
             }
             //Act
-            bool result = tree.Contains(list[list.Count - 1]);
+            bool result = tree.Contains(list[^1]);
             //Assert
             Assert.IsTrue(result);
         }
@@ -112,7 +112,7 @@ namespace GenericBinaryTreeTests
                 tree.Add(list[i]);
             }
             //Act
-            bool result = tree.Contains(list[list.Count - 1]);
+            bool result = tree.Contains(list[^1]);
             //Assert
             Assert.IsFalse(result);
         }
@@ -127,8 +127,8 @@ namespace GenericBinaryTreeTests
                 tree.Add(list[i]);
             }
             //Act
-            bool result = tree.Remove(list[list.Count - 1]);
-            bool searchResult = tree.Contains(list[list.Count - 1]);
+            bool result = tree.Remove(list[^1]);
+            bool searchResult = tree.Contains(list[^1]);
             //Assert
             Assert.IsTrue(result && !searchResult);
         }

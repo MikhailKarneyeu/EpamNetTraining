@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GenericBinaryTree</name>
+    </assembly>
+    <members>
+        <member name="T:GenericBinaryTree.BinaryTree`1">
+            <summary>
+            Class to store and operate binary tree.
+            </summary>
+            <typeparam name="T">Type of stored object.</typeparam>
+        </member>
+        <member name="P:GenericBinaryTree.BinaryTree`1.Head">
+            <summary>
+            Head node of a tree.
+            </summary>
+        </member>
+        <member name="P:GenericBinaryTree.BinaryTree`1.Count">
+            <summary>
+            Node count.
+            </summary>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.Add(`0)">
+            <summary>
+            Object adding operation.
+            </summary>
+            <param name="value">Object to store in node.</param>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.Contains(`0)">
+            <summary>
+            Operation to check if object contains in tree.
+            </summary>
+            <param name="value">Object to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.Remove(`0)">
+            <summary>
+            Node with object removing operation.
+            </summary>
+            <param name="value">Object to remove.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.Clear">
+            <summary>
+            Tree clearing opearation.
+            </summary>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.ToList">
+            <summary>
+            Geting object in list.
+            </summary>
+            <returns>List of stored objects.</returns>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.SaveToXmlFile(System.String)">
+            <summary>
+            Saving to xml file operation.
+            </summary>
+            <param name="filePath">Path to file to save.</param>
+        </member>
+        <member name="M:GenericBinaryTree.BinaryTree`1.ReadFromXmlFile(System.String)">
+            <summary>
+            Reading tree from xml file opearion.
+            </summary>
+            <param name="filePath">Path to xml file.</param>
+        </member>
+        <member name="T:GenericBinaryTree.TreeNode`1">
+            <summary>
+            Binary tree node class.
+            </summary>
+            <typeparam name="T">Type of stored object.</typeparam>
+        </member>
+        <member name="M:GenericBinaryTree.TreeNode`1.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:GenericBinaryTree.TreeNode`1.#ctor(`0,GenericBinaryTree.TreeNode{`0})">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="value">Stored object.</param>
+            <param name="parent">Parent node.</param>
+        </member>
+        <member name="P:GenericBinaryTree.TreeNode`1.Left">
+            <summary>
+            Left child node.
+            </summary>
+        </member>
+        <member name="P:GenericBinaryTree.TreeNode`1.Right">
+            <summary>
+            Right child node.
+            </summary>
+        </member>
+        <member name="P:GenericBinaryTree.TreeNode`1.Parent">
+            <summary>
+            Parent node.
+            </summary>
+        </member>
+        <member name="P:GenericBinaryTree.TreeNode`1.Value">
+            <summary>
+            Stored object.
+            </summary>
+        </member>
+        <member name="T:GenericBinaryTree.TreeState">
+            <summary>
+            Tree state enumeration.
+            </summary>
+        </member>
+        <member name="F:GenericBinaryTree.TreeState.Balanced">
+            <summary>
+            Tree balanced.
+            </summary>
+        </member>
+        <member name="F:GenericBinaryTree.TreeState.LeftHeavy">
+            <summary>
+            Left branch is too long.
+            </summary>
+        </member>
+        <member name="F:GenericBinaryTree.TreeState.RightHeavy">
+            <summary>
+            Right branch is too long.
+            </summary>
+        </member>
+    </members>
+</doc>
