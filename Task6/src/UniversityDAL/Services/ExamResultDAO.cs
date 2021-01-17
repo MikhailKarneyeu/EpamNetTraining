@@ -22,7 +22,7 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.ExamResults(ExamID, StudentID, Grade) VALUE (@examID, @studentID, @grade)";
+                sqlQuery = "INSERT INTO dbo.ExamResults(ExamID, StudentID, Grade) VALUES (@examID, @studentID, @grade)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@examID", entity.Exam.ExamID);
@@ -104,7 +104,7 @@ namespace UniversityDAL.Services
                     " dbo.Exams ON dbo.ExamResults.ExamID = dbo.Exams.ExamID INNER JOIN" +
                     " dbo.Sessions ON dbo.Exams.SessionID = dbo.Sessions.SessionID INNER JOIN" +
                     " dbo.Students ON dbo.ExamResults.StudentID = dbo.Students.StudentID INNER JOIN" +
-                    " dbo.Groups ON dbo.Students.GroupID = dbo.Groups.GroupID" +
+                    " dbo.Groups ON dbo.Students.GroupID = dbo.Groups.GroupID " +
                     "WHERE  (dbo.ExamResults.ExamResultID = @id)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {

@@ -22,7 +22,7 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Sessions(Name, StartDate, EndDate) VALUE (@name, @startDate, @endDate)";
+                sqlQuery = "INSERT INTO dbo.Sessions(Name, StartDate, EndDate) VALUES (@name, @startDate, @endDate)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@name", entity.Name);

@@ -11,32 +11,34 @@ namespace UniversityBLL
 {
     public class ReportManager
     {
-        readonly IDAO<Exam> _examDao;
-        readonly IDAO<ExamResult> _examResultDao;
-        readonly IDAO<Group> _groupDao;
-        readonly IDAO<Session> _sessinDao;
-        readonly IDAO<Student> _studentDao;
-        
+        readonly string _connectionString;
+        readonly DAOCreator<Exam> _examDAOCreator;
+        readonly DAOCreator<ExamResult> _examResultDAOCreator;
+        readonly DAOCreator<Group> _groupDAOCreator;
+        readonly DAOCreator<Session> _sessionDAOCreator;
+        readonly DAOCreator<Student> _studentDAOCreator;
+
         public ReportManager()
         { }
-        public ReportManager(IDAO<Exam> examDao, IDAO<ExamResult> examResultDao, IDAO<Group> groupDao, IDAO<Session> sessinDao, IDAO<Student> studentDao)
+        public ReportManager(string connectionString, DAOCreator<Exam> examDAOCreator, DAOCreator<ExamResult> examResultDAOCreator, DAOCreator<Group> groupDAOCreator, DAOCreator<Session> sessionDAOCreator, DAOCreator<Student> studentDAOCreator)
         {
-            _examDao = examDao;
-            _examResultDao = examResultDao;
-            _groupDao = groupDao;
-            _sessinDao = sessinDao;
-            _studentDao = studentDao;
+            _connectionString = connectionString;
+            _examDAOCreator = examDAOCreator;
+            _examResultDAOCreator = examResultDAOCreator;
+            _groupDAOCreator = groupDAOCreator;
+            _sessionDAOCreator = sessionDAOCreator;
+            _studentDAOCreator = studentDAOCreator;
         }
 
-        public void SaveSessinResults(string sessionName, string filePath, FieldInfo sortField)
+        public void SaveSessionResults(string sessionName, string filePath, PropertyInfo sortField)
         {
             if (sortField == null)
-                sortField = typeof(ExamResult).GetField("Exam");
-            List<ExamResult> examResults = _examResultDao.GetAll();
-            examResults = (List<ExamResult>)(from e in examResults
-                                             where e.Exam.Session.Name.Equals(sessionName)
-                                             orderby sortField
-                                             select e);
+                sortField = typeof(ExamResult).GetProperty("Exam");
+            List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
+            var examSortedResults = from e in examResults
+                                    where e.Exam.Session.Name.Equals(sessionName)
+                                    orderby sortField.GetValue(e, null)
+                                    select e;
             Workbook wb = new Workbook();
             Worksheet sheet = wb.Worksheets[0];
             Cells cells = sheet.Cells;
@@ -49,7 +51,7 @@ namespace UniversityBLL
             cell = cells["D1"];
             cell.PutValue("Grade");
             int i = 0;
-            foreach(ExamResult examResult in examResults)
+            foreach(ExamResult examResult in examSortedResults)
             {
                 cell = cells[$"A{i+2}"];
                 cell.PutValue(examResult.Exam.Name);
@@ -62,16 +64,15 @@ namespace UniversityBLL
                 i++;
             }
             Aspose.Cells.Tables.ListObject listObject = sheet.ListObjects[sheet.ListObjects.Add("A1", $"D{i+1}", true)];
-            listObject.ShowTotals = true;
             wb.Save(filePath, SaveFormat.Xlsx);
         }
 
-        public void SaveSessionResultsSummary(string sessionName, string filePath, FieldInfo sortField)
+        public void SaveSessionResultsSummary(string sessionName, string filePath, PropertyInfo sortField)
         {
-            List<ExamResult> examResults = _examResultDao.GetAll();
-            examResults = (List<ExamResult>)(from e in examResults
-                                             where e.Exam.Session.Name.Equals(sessionName)
-                                             select e);
+            List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
+            examResults = (from e in examResults
+                          where e.Exam.Session.Name.Equals(sessionName)
+                          select e).ToList();
             var sessionGroups = from e in examResults
                                 group e by e.Student.Group;
             List<SessionGroupSummary> sessionSummaries = new List<SessionGroupSummary>();
@@ -84,10 +85,10 @@ namespace UniversityBLL
                 sessionSummaries[^1].MinGrade = g.Min(e => Convert.ToInt32(e.Grade));
             }
             if(sortField == null)
-                sortField = typeof(ExamResult).GetField("Group");
-            sessionSummaries = (List<SessionGroupSummary>)(from e in sessionSummaries
-                               orderby sortField
-                               select e);
+                sortField = typeof(SessionGroupSummary).GetProperty("Group");
+            sessionSummaries = (from e in sessionSummaries
+                               orderby sortField.GetValue(e, null)
+                                select e).ToList();
             Workbook wb = new Workbook();
             Worksheet sheet = wb.Worksheets[0];
             Cells cells = sheet.Cells;
@@ -113,17 +114,16 @@ namespace UniversityBLL
                 i++;
             }
             Aspose.Cells.Tables.ListObject listObject = sheet.ListObjects[sheet.ListObjects.Add("A1", $"D{i + 1}", true)];
-            listObject.ShowTotals = true;
             wb.Save(filePath, SaveFormat.Xlsx);
         }
 
-        public List<Student> GetStudentToExpel(string sessionName, FieldInfo sortField)
+        public List<Student> GetStudentToExpel(string sessionName, PropertyInfo sortField)
         {
             List<Student> resultList = new List<Student>();
-            List<ExamResult> examResults = _examResultDao.GetAll();
-            examResults = (List<ExamResult>)(from e in examResults
-                                             where e.Exam.Session.Name.Equals(sessionName)
-                                             select e);
+            List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
+            examResults = (from e in examResults
+                           where e.Exam.Session.Name.Equals(sessionName)
+                           select e).ToList();
             var examsByStudent = from e in examResults
                                 group e by e.Student;
             foreach(IGrouping<Student, ExamResult> g in examsByStudent)
@@ -133,10 +133,10 @@ namespace UniversityBLL
                     resultList.Add(g.Key);
             }
             if(sortField == null)
-                sortField = typeof(Student).GetField("Name");
-            resultList = (List<Student>)(from e in resultList
-                         orderby sortField
-                         select e);
+                sortField = typeof(Student).GetProperty("FullName");
+            resultList = (from e in resultList
+                         orderby sortField.GetValue(e, null)
+                          select e).ToList();
             return resultList;
         }
     }

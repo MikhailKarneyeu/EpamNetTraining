@@ -5,7 +5,7 @@ using UniversityDAL.Entities;
 
 namespace UniversityDAL.Services
 {
-    class ExamResultDAOCreator: DAOCreator<ExamResult>
+    public class ExamResultDAOCreator: DAOCreator<ExamResult>
     {
         public override IDAO<ExamResult> Create(string connectionString)
         {

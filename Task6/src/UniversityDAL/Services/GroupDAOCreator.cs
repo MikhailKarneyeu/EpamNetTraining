@@ -5,7 +5,7 @@ using UniversityDAL.Entities;
 
 namespace UniversityDAL.Services
 {
-    class GroupDAOCreator: DAOCreator<Group>
+    public class GroupDAOCreator: DAOCreator<Group>
     {
         public override IDAO<Group> Create(string connectionString)
         {

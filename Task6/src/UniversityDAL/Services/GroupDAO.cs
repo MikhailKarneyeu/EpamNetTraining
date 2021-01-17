@@ -22,7 +22,7 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Groups(Name) VALUE (@name)";
+                sqlQuery = "INSERT INTO dbo.Groups(Name) VALUES (@name)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@name", entity.Name);

@@ -22,7 +22,7 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Students(GroupID, FullName, Gender, BirthDate) VALUE (@groupID, @fullName, @gender, @birthDate)";
+                sqlQuery = "INSERT INTO dbo.Students(GroupID, FullName, Gender, BirthDate) VALUES (@groupID, @fullName, @gender, @birthDate)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@groupID", entity.Group.GroupID);
@@ -93,8 +93,8 @@ namespace UniversityDAL.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                sqlQuery = "SELECT dbo.Students.StudentID, dbo.Students.GroupID, dbo.Groups.Name, dbo.Students.FullName, dbo.Students.Gender, dbo.Students.BirthDate" +
-                    "FROM     dbo.Groups INNER JOIN dbo.Students ON dbo.Groups.GroupID = dbo.Students.GroupID" +
+                sqlQuery = "SELECT dbo.Students.StudentID, dbo.Students.GroupID, dbo.Groups.Name, dbo.Students.FullName, dbo.Students.Gender, dbo.Students.BirthDate " +
+                    "FROM dbo.Groups INNER JOIN dbo.Students ON dbo.Groups.GroupID = dbo.Students.GroupID " +
                     "WHERE(dbo.Students.StudentID = @id)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {

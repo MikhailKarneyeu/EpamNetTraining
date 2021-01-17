@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UniversityDAL.Services
 {
-    abstract class DAOCreator<E>
+    public abstract class DAOCreator<E>
     {
         public abstract IDAO<E> Create(string connectionString);
     }

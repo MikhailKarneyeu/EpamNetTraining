@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CD5C1153-BA4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5F801A92-71D0-4E88-B108-1C85ED829287}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDAL", "src\UniversityDAL\UniversityDAL.csproj", "{A242DFF3-C557-4BBB-8EA9-84B6048A7897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityDAL", "src\UniversityDAL\UniversityDAL.csproj", "{A242DFF3-C557-4BBB-8EA9-84B6048A7897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityBLL", "src\UniversityBLL\UniversityBLL.csproj", "{EE334CA2-128D-487D-B420-731E2A23D607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityBLL", "src\UniversityBLL\UniversityBLL.csproj", "{EE334CA2-128D-487D-B420-731E2A23D607}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDALTests", "test\UniversityDALTests\UniversityDALTests.csproj", "{348B01CB-2BCE-4AB0-9B51-977E8D5F324E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityDALIntegrationTests", "test\UniversityDALTests\UniversityDALIntegrationTests.csproj", "{348B01CB-2BCE-4AB0-9B51-977E8D5F324E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDLLTests", "test\UniversityDLLTests\UniversityDLLTests.csproj", "{947B2430-F52A-4590-88BA-9208928D73B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityDLLTests", "test\UniversityDLLTests\UniversityDLLTests.csproj", "{947B2430-F52A-4590-88BA-9208928D73B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

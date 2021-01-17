@@ -5,7 +5,7 @@ using UniversityDAL.Entities;
 
 namespace UniversityDAL.Services
 {
-    class SessionDAOCreator: DAOCreator<Session>
+    public class SessionDAOCreator: DAOCreator<Session>
     {
         public override IDAO<Session> Create(string connectionString)
         {
