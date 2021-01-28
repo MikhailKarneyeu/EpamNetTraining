@@ -7,16 +7,16 @@ namespace UniversityDAL.Entities
     public class Student: IComparable
     {
         public int StudentID { get; set; }
-        public Group Group { get; set; }
+        public int GroupID { get; set; }
         public string FullName { get; set; }
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public Student()
         { }
-        public Student(int studentID, Group group, string fullName, string gender, DateTime birthDate)
+        public Student(int studentID, int groupID, string fullName, string gender, DateTime birthDate)
         {
             StudentID = studentID;
-            Group = group;
+            GroupID = groupID;
             FullName = fullName;
             Gender = gender;
             BirthDate = birthDate;
@@ -45,7 +45,7 @@ namespace UniversityDAL.Entities
 
         public override string ToString()
         {
-            return $"{StudentID};{Group};{FullName.Trim()};{Gender.Trim()};{BirthDate}";
+            return $"{StudentID};{GroupID};{FullName.Trim()};{Gender.Trim()};{BirthDate}";
         }
     }
 }

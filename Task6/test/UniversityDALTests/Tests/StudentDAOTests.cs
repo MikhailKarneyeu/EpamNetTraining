@@ -13,24 +13,17 @@ namespace UniversityDALIntegrationTests.Tests
     {
         private string _connectionString;
 
-        private static readonly List<Group> _groups =
-            new List<Group>
-            {
-                new Group(1, "Group1"),
-                new Group(2, "Group2"),
-                new Group(3, "Group3")
-            };
-
         private static readonly object[] _students =
             new object[]
             {
                 new List<Student>
                 {
-                    new Student(1, _groups[0], "FullName1", "Female", Convert.ToDateTime("12.02.2000")),
-                    new Student(2, _groups[0], "FullName2", "Male", Convert.ToDateTime("14.08.2000")),
-                    new Student(3, _groups[1], "FullName3", "FMale", Convert.ToDateTime("09.03.2000")),
-                    new Student(4, _groups[1], "FullName4", "Male", Convert.ToDateTime("15.04.2001")),
-                    new Student(5, _groups[2], "FullName5", "Male", Convert.ToDateTime("03.03.2000"))
+                    new Student(1, 1, "StudentName1", "Male", Convert.ToDateTime("08.03.2001")),
+                    new Student(2, 1, "StudentName2", "Female", Convert.ToDateTime("12.05.2001")),
+                    new Student(3, 2, "StudentName3", "Male", Convert.ToDateTime("21.02.2000")),
+                    new Student(4, 2, "StudentName4", "Male", Convert.ToDateTime("12.05.2000")),
+                    new Student(5, 3, "StudentName5", "Female", Convert.ToDateTime("01.07.2001")),
+                    new Student(6, 3, "StudentName6", "Male", Convert.ToDateTime("15.11.2000"))
                 }
             };
 
@@ -54,7 +47,7 @@ namespace UniversityDALIntegrationTests.Tests
         [Test, TestCaseSource(nameof(_students))]
         public void Create_ValidEntity_RecordCreated(List<Student> students)
         {
-            var testStudent = new Student(6, _groups[2], "FullName6", "Male", Convert.ToDateTime("03.03.2000"));
+            var testStudent = new Student(7, 3, "StudentName7", "Male", Convert.ToDateTime("03.03.2000"));
             var studentDAO = new StudentDAOCreator().Create(_connectionString);
             //Act
             studentDAO.Create(testStudent);
@@ -67,16 +60,16 @@ namespace UniversityDALIntegrationTests.Tests
         public void DeleteById_CorrectId_RecordDeleted(List<Student> students)
         {
             //Arrange
-            var testStudent = new Student(6, _groups[2], "FullName6", "Male", Convert.ToDateTime("03.03.2000"));
+            var testStudent = new Student(7, 3, "StudentName7", "Male", Convert.ToDateTime("03.03.2000"));
             var studentDAO = new StudentDAOCreator().Create(_connectionString);
             studentDAO.Create(testStudent);
-            var examList = studentDAO.GetAll();
-            var examExist = examList.Contains(testStudent);
+            var studentList = studentDAO.GetAll();
+            var examExist = studentList.Contains(testStudent);
             //Act
-            var result = studentDAO.DeleteById(6);
-            examList = studentDAO.GetAll();
+            var result = studentDAO.DeleteById(7);
+            studentList = studentDAO.GetAll();
             //Assert
-            Assert.IsTrue(result && examExist && !examList.Contains(testStudent));
+            Assert.IsTrue(result && examExist && !studentList.Contains(testStudent));
         }
 
         [Test, TestCaseSource(nameof(_students))]
@@ -105,13 +98,13 @@ namespace UniversityDALIntegrationTests.Tests
         public void Update_ValidEntity_RecordUpdated(List<Student> students)
         {
             //Arrange
-            var testStudent = new Student(5, _groups[2], "FullName5Updated", "Male", Convert.ToDateTime("03.03.2000"));
+            var testStudent = new Student(5, 3, "Student5Updated", "Male", Convert.ToDateTime("03.03.2000"));
             var studentDAO = new StudentDAOCreator().Create(_connectionString);
             //Act
             studentDAO.Update(testStudent);
-            var examList = studentDAO.GetAll();
+            var studentList = studentDAO.GetAll();
             //Assert
-            Assert.IsTrue(examList[4].Equals(testStudent));
+            Assert.IsTrue(studentList[4].Equals(testStudent));
         }
     }
 }

@@ -25,7 +25,7 @@ namespace UniversityDAL.Services
                 sqlQuery = "INSERT INTO dbo.Students(GroupID, FullName, Gender, BirthDate) VALUES (@groupID, @fullName, @gender, @birthDate)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@groupID", entity.Group.GroupID);
+                    command.Parameters.AddWithValue("@groupID", entity.GroupID);
                     command.Parameters.AddWithValue("@fullName", entity.FullName);
                     command.Parameters.AddWithValue("@gender", entity.Gender);
                     command.Parameters.AddWithValue("@birthDate", entity.BirthDate);
@@ -68,15 +68,14 @@ namespace UniversityDAL.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sqlQuery = "SELECT dbo.Students.StudentID, dbo.Students.GroupID, dbo.Groups.Name, dbo.Students.FullName, dbo.Students.Gender, dbo.Students.BirthDate " +
-                    "FROM dbo.Groups INNER JOIN dbo.Students ON dbo.Groups.GroupID = dbo.Students.GroupID";
+                string sqlQuery = "SELECT StudentID, GroupID, FullName, Gender, BirthDate FROM dbo.Students";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     using (reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            students.Add(new Student(reader.GetInt32(0), new Group(reader.GetInt32(1), reader.GetString(2)), reader.GetString(3), reader.GetString(4), reader.GetDateTime(5)));
+                            students.Add(new Student(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4)));
                         }
                     }
                 }
@@ -93,9 +92,7 @@ namespace UniversityDAL.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                sqlQuery = "SELECT dbo.Students.StudentID, dbo.Students.GroupID, dbo.Groups.Name, dbo.Students.FullName, dbo.Students.Gender, dbo.Students.BirthDate " +
-                    "FROM dbo.Groups INNER JOIN dbo.Students ON dbo.Groups.GroupID = dbo.Students.GroupID " +
-                    "WHERE(dbo.Students.StudentID = @id)";
+                sqlQuery = "SELECT StudentID, GroupID, FullName, Gender, BirthDate FROM dbo.Students WHERE(StudentID = @id)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -103,7 +100,7 @@ namespace UniversityDAL.Services
                     {
                         while (reader.Read())
                         {
-                            student = new Student(reader.GetInt32(0), new Group(reader.GetInt32(1), reader.GetString(2)), reader.GetString(3), reader.GetString(4), reader.GetDateTime(5));
+                            student = new Student(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4));
                         }
                     }
                 }
@@ -124,7 +121,7 @@ namespace UniversityDAL.Services
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@studentID", entity.StudentID);
-                    command.Parameters.AddWithValue("@groupID", entity.Group.GroupID);
+                    command.Parameters.AddWithValue("@groupID", entity.GroupID);
                     command.Parameters.AddWithValue("@fullName", entity.FullName);
                     command.Parameters.AddWithValue("@gender", entity.Gender);
                     command.Parameters.AddWithValue("@birthDate", entity.BirthDate);

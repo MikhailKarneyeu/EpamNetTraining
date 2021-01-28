@@ -4,34 +4,27 @@ using System.Text;
 
 namespace UniversityDAL.Entities
 {
-    public class Exam: IComparable
+    public class Subject
     {
-        public int ExamID { get; set; }
-        public int SessionID { get; set; }
         public int SubjectID { get; set; }
-        public DateTime Date { get; set; }
-        public Exam()
+        public string Name { get; set; }
+        public Subject()
+        { }
+        public Subject(int subjectID, string name)
         {
-        }
-        public Exam(int examID, int sessionID, int subjectID, DateTime date)
-        {
-            ExamID = examID;
-            SessionID = sessionID;
             SubjectID = subjectID;
-            Date = date;
+            Name = name;
         }
-
         public int CompareTo(object obj)
         {
-            if (obj is Exam e)
-                return this.ExamID.CompareTo(e.ExamID);
+            if (obj is Group e)
+                return this.Name.CompareTo(e.Name);
             else
                 throw new Exception("Invalid type object.");
         }
-
         public override bool Equals(object obj)
         {
-            if (typeof(Exam) !=obj.GetType())
+            if (typeof(Subject) != obj.GetType())
                 return false;
             if (ToString().Equals(obj.ToString()))
                 return true;
@@ -40,12 +33,12 @@ namespace UniversityDAL.Entities
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return this.SubjectID.GetHashCode() ^ this.Name.GetHashCode();
         }
 
         public override string ToString()
         {
-            return $"{ExamID};{SessionID};{SubjectID};{Date}";
+            return $"{SubjectID};{Name.Trim()}";
         }
     }
 }

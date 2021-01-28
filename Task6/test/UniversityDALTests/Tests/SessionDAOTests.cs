@@ -17,8 +17,10 @@ namespace UniversityDALIntegrationTests.Tests
             {
                 new List<Session>
                 {
-                    new Session(1, "Session1", Convert.ToDateTime("24.12.2020"), Convert.ToDateTime("07.01.2021")),
-                    new Session(2, "Session2", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"))
+                    new Session(1, "Session1", Convert.ToDateTime("24.05.2019"), Convert.ToDateTime("07.06.2019")),
+                    new Session(2, "Session2", Convert.ToDateTime("23.12.2019"), Convert.ToDateTime("06.01.2020")),
+                    new Session(3, "Session3", Convert.ToDateTime("22.05.2020"), Convert.ToDateTime("05.06.2020")),
+                    new Session(4, "Session4", Convert.ToDateTime("24.12.2020"), Convert.ToDateTime("07.01.2021"))
                 }
             };
 
@@ -42,7 +44,7 @@ namespace UniversityDALIntegrationTests.Tests
         [Test, TestCaseSource(nameof(_sessions))]
         public void Create_ValidEntity_RecordCreated(List<Session> sessions)
         {
-            var testSession = new Session(3, "Session3", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"));
+            var testSession = new Session(5, "Session5", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"));
             var sessionDAO = new SessionDAOCreator().Create(_connectionString);
             //Act
             sessionDAO.Create(testSession);
@@ -55,16 +57,16 @@ namespace UniversityDALIntegrationTests.Tests
         public void DeleteById_CorrectId_RecordDeleted(List<Session> sessions)
         {
             //Arrange
-            var testSession = new Session(3, "Session3", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"));
+            var testSession = new Session(5, "Session5", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"));
             var sessionDAO = new SessionDAOCreator().Create(_connectionString);
             sessionDAO.Create(testSession);
-            var examList = sessionDAO.GetAll();
-            var examExist = examList.Contains(testSession);
+            var sessionList = sessionDAO.GetAll();
+            var examExist = sessionList.Contains(testSession);
             //Act
-            var result = sessionDAO.DeleteById(3);
-            examList = sessionDAO.GetAll();
+            var result = sessionDAO.DeleteById(5);
+            sessionList = sessionDAO.GetAll();
             //Assert
-            Assert.IsTrue(result && examExist && !examList.Contains(testSession));
+            Assert.IsTrue(result && examExist && !sessionList.Contains(testSession));
         }
 
         [Test, TestCaseSource(nameof(_sessions))]
@@ -97,9 +99,9 @@ namespace UniversityDALIntegrationTests.Tests
             var sessionDAO = new SessionDAOCreator().Create(_connectionString);
             //Act
             sessionDAO.Update(testSession);
-            var examList = sessionDAO.GetAll();
+            var sessionList = sessionDAO.GetAll();
             //Assert
-            Assert.IsTrue(examList[1].Equals(testSession));
+            Assert.IsTrue(sessionList[1].Equals(testSession));
         }
     }
 }

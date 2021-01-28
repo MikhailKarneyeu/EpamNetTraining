@@ -17,10 +17,11 @@ namespace UniversityBLL
         readonly DAOCreator<Group> _groupDAOCreator;
         readonly DAOCreator<Session> _sessionDAOCreator;
         readonly DAOCreator<Student> _studentDAOCreator;
+        readonly DAOCreator<Subject> _subjectDAOCreator;
 
         public ReportManager()
         { }
-        public ReportManager(string connectionString, DAOCreator<Exam> examDAOCreator, DAOCreator<ExamResult> examResultDAOCreator, DAOCreator<Group> groupDAOCreator, DAOCreator<Session> sessionDAOCreator, DAOCreator<Student> studentDAOCreator)
+        public ReportManager(string connectionString, DAOCreator<Exam> examDAOCreator, DAOCreator<ExamResult> examResultDAOCreator, DAOCreator<Group> groupDAOCreator, DAOCreator<Session> sessionDAOCreator, DAOCreator<Student> studentDAOCreator, DAOCreator<Subject> subjectDAOCreator)
         {
             _connectionString = connectionString;
             _examDAOCreator = examDAOCreator;
@@ -28,17 +29,36 @@ namespace UniversityBLL
             _groupDAOCreator = groupDAOCreator;
             _sessionDAOCreator = sessionDAOCreator;
             _studentDAOCreator = studentDAOCreator;
+            _subjectDAOCreator = subjectDAOCreator;
         }
 
         public void SaveSessionResults(string sessionName, string filePath, PropertyInfo sortField)
         {
             if (sortField == null)
-                sortField = typeof(ExamResult).GetProperty("Exam");
+                sortField = typeof(SessionResult).GetProperty("ExamName");
             List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
-            var examSortedResults = from e in examResults
-                                    where e.Exam.Session.Name.Equals(sessionName)
-                                    orderby sortField.GetValue(e, null)
-                                    select e;
+            List<Student> students = _studentDAOCreator.Create(_connectionString).GetAll();
+            List<Group> groups = _groupDAOCreator.Create(_connectionString).GetAll();
+            List<Session> sessions = _sessionDAOCreator.Create(_connectionString).GetAll();
+            List<Exam> exams = _examDAOCreator.Create(_connectionString).GetAll();
+            List<Subject> subjects = _subjectDAOCreator.Create(_connectionString).GetAll();
+            var sessionExamResults = (from e in examResults
+                                      join @exam in exams on e.ExamID equals exam.ExamID
+                                      join @session in sessions on @exam.SessionID equals session.SessionID
+                                      where @session.Name == sessionName
+                                      select e).ToList();
+            var sessionResults = new List<SessionResult>();
+            foreach(ExamResult examResult in sessionExamResults)
+            {
+                sessionResults.Add(new SessionResult());
+                sessionResults[^1].ExamName = subjects.Find(s => s.SubjectID == exams.Find(e => e.ExamID == examResult.ExamID).SubjectID).Name;
+                sessionResults[^1].StudentName = students.Find(s => s.StudentID == examResult.StudentID).FullName;
+                sessionResults[^1].GroupName = groups.Find(g => g.GroupID == students.Find(s => s.StudentID == examResult.StudentID).GroupID).Name;
+                sessionResults[^1].Grade = examResult.Grade;
+            }
+            sessionResults = (from e in sessionResults
+                              orderby sortField.GetValue(e, null)
+                              select e).ToList();
             Workbook wb = new Workbook();
             Worksheet sheet = wb.Worksheets[0];
             Cells cells = sheet.Cells;
@@ -51,16 +71,16 @@ namespace UniversityBLL
             cell = cells["D1"];
             cell.PutValue("Grade");
             int i = 0;
-            foreach(ExamResult examResult in examSortedResults)
+            foreach(SessionResult sessionResult in sessionResults)
             {
                 cell = cells[$"A{i+2}"];
-                cell.PutValue(examResult.Exam.Name);
+                cell.PutValue(sessionResult.ExamName);
                 cell = cells[$"B{i+2}"];
-                cell.PutValue(examResult.Student.Group.Name);
+                cell.PutValue(sessionResult.GroupName);
                 cell = cells[$"C{i+2}"];
-                cell.PutValue(examResult.Student.FullName);
+                cell.PutValue(sessionResult.StudentName);
                 cell = cells[$"D{i+2}"];
-                cell.PutValue(examResult.Grade);
+                cell.PutValue(sessionResult.Grade);
                 i++;
             }
             Aspose.Cells.Tables.ListObject listObject = sheet.ListObjects[sheet.ListObjects.Add("A1", $"D{i+1}", true)];
@@ -70,24 +90,37 @@ namespace UniversityBLL
         public void SaveSessionResultsSummary(string sessionName, string filePath, PropertyInfo sortField)
         {
             List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
-            examResults = (from e in examResults
-                          where e.Exam.Session.Name.Equals(sessionName)
-                          select e).ToList();
-            var sessionGroups = from e in examResults
-                                group e by e.Student.Group;
+            List<Student> students = _studentDAOCreator.Create(_connectionString).GetAll();
+            List<Group> groups = _groupDAOCreator.Create(_connectionString).GetAll();
+            List<Session> sessions = _sessionDAOCreator.Create(_connectionString).GetAll();
+            List<Exam> exams = _examDAOCreator.Create(_connectionString).GetAll();
+            var sessionExamResults = (from e in examResults
+                                      join @exam in exams on e.ExamID equals exam.ExamID
+                                      join @session in sessions on @exam.SessionID equals session.SessionID
+                                      where @session.Name == sessionName
+                                      select e).ToList();
+            var sessionResults = new List<SessionResult>();
+            foreach (ExamResult examResult in sessionExamResults)
+            {
+                sessionResults.Add(new SessionResult());
+                sessionResults[^1].GroupName = groups.Find(g => g.GroupID == students.Find(s => s.StudentID == examResult.StudentID).GroupID).Name;
+                sessionResults[^1].Grade = examResult.Grade;
+            }
+            var sessionGroups = from e in sessionResults
+                                group e by e.GroupName;
             List<SessionGroupSummary> sessionSummaries = new List<SessionGroupSummary>();
-            foreach (IGrouping<Group, ExamResult> g in sessionGroups)
+            foreach (IGrouping<string, SessionResult> g in sessionGroups)
             {
                 sessionSummaries.Add(new SessionGroupSummary());
-                sessionSummaries[^1].Group = g.Key;
+                sessionSummaries[^1].GroupName = g.Key;
                 sessionSummaries[^1].AverageGrade = g.Average(e => Convert.ToInt32(e.Grade));
                 sessionSummaries[^1].MaxGrade = g.Max(e => Convert.ToInt32(e.Grade));
                 sessionSummaries[^1].MinGrade = g.Min(e => Convert.ToInt32(e.Grade));
             }
             if(sortField == null)
-                sortField = typeof(SessionGroupSummary).GetProperty("Group");
+                sortField = typeof(SessionGroupSummary).GetProperty("GroupName");
             sessionSummaries = (from e in sessionSummaries
-                               orderby sortField.GetValue(e, null)
+                                orderby sortField.GetValue(e, null)
                                 select e).ToList();
             Workbook wb = new Workbook();
             Worksheet sheet = wb.Worksheets[0];
@@ -104,7 +137,7 @@ namespace UniversityBLL
             foreach (SessionGroupSummary sessionSummary in sessionSummaries)
             {
                 cell = cells[$"A{i + 2}"];
-                cell.PutValue(sessionSummary.Group.Name);
+                cell.PutValue(sessionSummary.GroupName);
                 cell = cells[$"B{i + 2}"];
                 cell.PutValue(sessionSummary.AverageGrade);
                 cell = cells[$"C{i + 2}"];
@@ -121,21 +154,28 @@ namespace UniversityBLL
         {
             List<Student> resultList = new List<Student>();
             List<ExamResult> examResults = _examResultDAOCreator.Create(_connectionString).GetAll();
-            examResults = (from e in examResults
-                           where e.Exam.Session.Name.Equals(sessionName)
-                           select e).ToList();
+            List<Student> students = _studentDAOCreator.Create(_connectionString).GetAll();
+            List<Group> groups = _groupDAOCreator.Create(_connectionString).GetAll();
+            List<Session> sessions = _sessionDAOCreator.Create(_connectionString).GetAll();
+            List<Exam> exams = _examDAOCreator.Create(_connectionString).GetAll();
+            List<Subject> subjects = _subjectDAOCreator.Create(_connectionString).GetAll();
+            var sessionExamResults = (from e in examResults
+                                      join @exam in exams on e.ExamID equals exam.ExamID
+                                      join @session in sessions on @exam.SessionID equals session.SessionID
+                                      where @session.Name == sessionName
+                                      select e).ToList();
             var examsByStudent = from e in examResults
-                                group e by e.Student;
-            foreach(IGrouping<Student, ExamResult> g in examsByStudent)
+                                group e by e.StudentID;
+            foreach(IGrouping<int, ExamResult> g in examsByStudent)
             {
                 int failTestsCount = g.Count(e => Convert.ToInt32(e.Grade) < 4);
                 if (failTestsCount > 2)
-                    resultList.Add(g.Key);
+                    resultList.Add(students.Find(s => s.StudentID == g.Key));
             }
             if(sortField == null)
                 sortField = typeof(Student).GetProperty("FullName");
             resultList = (from e in resultList
-                         orderby sortField.GetValue(e, null)
+                          orderby sortField.GetValue(e, null)
                           select e).ToList();
             return resultList;
         }

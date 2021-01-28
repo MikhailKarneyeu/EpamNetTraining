@@ -6,14 +6,14 @@ using UniversityDAL.Entities;
 
 namespace UniversityDAL.Services
 {
-    class ExamDAO : IDAO<Exam>
+    class SubjectDAO: IDAO<Subject>
     {
         private readonly string _connectionString;
-        public ExamDAO(string connectionString)
+        public SubjectDAO(string connectionString)
         {
             _connectionString = connectionString;
         }
-        public bool Create(Exam entity)
+        public bool Create(Subject entity)
         {
             SqlCommand command;
             string sqlQuery;
@@ -22,12 +22,10 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Exams(SessionID, SubjectID, Date) VALUES (@sessionID, @subjectID, @date)";
+                sqlQuery = "INSERT INTO dbo.Subjects(Name) VALUES (@name)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@sessionID", entity.SessionID);
-                    command.Parameters.AddWithValue("@subjectID", entity.SubjectID);
-                    command.Parameters.AddWithValue("@date", entity.Date);
+                    command.Parameters.AddWithValue("@name", entity.Name);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();
                     if (rows > 0)
@@ -46,7 +44,7 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "DELETE dbo.Exams WHERE ExamID=@id";
+                sqlQuery = "DELETE dbo.Subjects WHERE SubjectID = @id";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -59,39 +57,39 @@ namespace UniversityDAL.Services
             return result;
         }
 
-        public List<Exam> GetAll()
+        public List<Subject> GetAll()
         {
             SqlCommand command;
             SqlDataReader reader;
-            List<Exam> exams = new List<Exam>();
+            List<Subject> subjects = new List<Subject>();
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sqlQuery = "SELECT ExamID, SessionID, SubjectID, Date FROM dbo.Exams";
+                string sqlQuery = "SELECT * FROM dbo.Subjects";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     using (reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            exams.Add(new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3)));
+                            subjects.Add(new Subject(reader.GetInt32(0), reader.GetString(1)));
                         }
                     }
                 }
             }
-            return exams;
+            return subjects;
         }
 
-        public Exam GetById(int id)
+        public Subject GetById(int id)
         {
             SqlCommand command;
             SqlDataReader reader;
             string sqlQuery;
-            Exam exam = null;
+            Subject subject = null;
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                sqlQuery = "SELECT ExamID, SessionID, SubjectID, Date FROM dbo.Exams WHERE(ExamID = @id)";
+                sqlQuery = "SELECT * FROM dbo.Subjects WHERE SubjectId=@id";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -99,15 +97,15 @@ namespace UniversityDAL.Services
                     {
                         while (reader.Read())
                         {
-                            exam = new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3));
+                            subject = new Subject(reader.GetInt32(0), reader.GetString(1));
                         }
                     }
                 }
             }
-            return exam;
+            return subject;
         }
 
-        public bool Update(Exam entity)
+        public bool Update(Subject entity)
         {
             SqlCommand command;
             string sqlQuery;
@@ -116,13 +114,11 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "UPDATE dbo.Exams SET SessionID = @sessionID, SubjectID = @subjectID, Date = @date WHERE ExamID = @examID";
+                sqlQuery = "UPDATE dbo.Subjects SET Name = @name WHERE SubjectID = @SubjectID";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@examID", entity.ExamID);
-                    command.Parameters.AddWithValue("@sessionID", entity.SessionID);
-                    command.Parameters.AddWithValue("@subjectID", entity.SubjectID);
-                    command.Parameters.AddWithValue("@date", entity.Date);
+                    command.Parameters.AddWithValue("@SubjectID", entity.SubjectID);
+                    command.Parameters.AddWithValue("@name", entity.Name);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();
                     if (rows > 0)

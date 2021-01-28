@@ -19,7 +19,8 @@ namespace UniversityDALIntegrationTests.Tests
                 {
                     new Group(1, "Group1"),
                     new Group(2, "Group2"),
-                    new Group(3, "Group3")
+                    new Group(3, "Group3"),
+                    new Group(4, "Group4")
                 }
             };
     
@@ -57,13 +58,13 @@ namespace UniversityDALIntegrationTests.Tests
         public void DeleteById_CorrectId_RecordDeleted(List<Group> groups)
         {
             //Arrange
-            var testGroup = new Group(4, "Group4");
+            var testGroup = new Group(5, "Group5");
             var groupDAO = new GroupDAOCreator().Create(_connectionString);
             groupDAO.Create(testGroup);
             var groupList = groupDAO.GetAll();
             var groupExist = groupList.Contains(testGroup);
             //Act
-            var result = groupDAO.DeleteById(4);
+            var result = groupDAO.DeleteById(5);
             groupList = groupDAO.GetAll();
             //Assert
             Assert.IsTrue(result && groupExist && !groupList.Contains(testGroup));
@@ -95,13 +96,13 @@ namespace UniversityDALIntegrationTests.Tests
         public void Update_ValidEntity_RecordUpdated(List<Group> groups)
         {
             //Arrange
-            var testGroup = new Group(3, "NewName");
+            var testGroup = new Group(4, "NewName");
             var groupDAO = new GroupDAOCreator().Create(_connectionString);
             //Act
             groupDAO.Update(testGroup);
-            var examList = groupDAO.GetAll();
+            var groupList = groupDAO.GetAll();
             //Assert
-            Assert.IsTrue(examList[2].Equals(testGroup));
+            Assert.IsTrue(groupList[3].Equals(testGroup));
         }
     }
 }

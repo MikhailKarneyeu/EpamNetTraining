@@ -14,17 +14,18 @@ namespace UniversityDLLTests
     {
         private static readonly List<Session> _sessions = new List<Session>
             {
-                new Session(1, "Session1", Convert.ToDateTime("24.12.2020"), Convert.ToDateTime("07.01.2021")),
-                new Session(2, "Session2", Convert.ToDateTime("24.05.2020"), Convert.ToDateTime("07.06.2020"))
+                new Session(1, "Session1", Convert.ToDateTime("24.05.2019"), Convert.ToDateTime("07.06.2019")),
+                new Session(2, "Session2", Convert.ToDateTime("23.12.2019"), Convert.ToDateTime("06.01.2020")),
             };
 
         private static readonly List<Exam> _exams =
             new List<Exam>
             {
-                new Exam(1, _sessions[0], "ExamName1", Convert.ToDateTime("24.12.2020 08:00:00")),
-                new Exam(2, _sessions[0], "ExamName2", Convert.ToDateTime("27.12.2020 08:00:00")),
-                new Exam(3, _sessions[0], "ExamName3", Convert.ToDateTime("30.12.2020 08:00:00")),
-                new Exam(4, _sessions[1], "ExamName4", Convert.ToDateTime("28.05.2020 08:00:00"))
+                new Exam(1, 1, 1, Convert.ToDateTime("25.05.2019 08:00:00")),
+                new Exam(2, 1, 2, Convert.ToDateTime("28.05.2019 08:00:00")),
+                new Exam(3, 1, 3, Convert.ToDateTime("30.05.2019 08:00:00")),
+                new Exam(4, 2, 4, Convert.ToDateTime("24.12.2019 08:00:00")),
+
             };
 
         private static readonly List<Group> _groups =
@@ -38,11 +39,20 @@ namespace UniversityDLLTests
         private static readonly List<Student> _students =
             new List<Student>
             {
-                new Student(1, _groups[0], "Student1", "Female", Convert.ToDateTime("12.02.2000")),
-                new Student(2, _groups[0], "Student2", "Male", Convert.ToDateTime("14.08.2000")),
-                new Student(3, _groups[1], "Student3", "Male", Convert.ToDateTime("09.03.2000")),
-                new Student(4, _groups[1], "Student4", "Male", Convert.ToDateTime("15.04.2001")),
-                new Student(5, _groups[2], "Student5", "Male", Convert.ToDateTime("03.03.2000"))
+                new Student(1, 1, "Student1", "Female", Convert.ToDateTime("12.02.2000")),
+                new Student(2, 1, "Student2", "Male", Convert.ToDateTime("14.08.2000")),
+                new Student(3, 2, "Student3", "Male", Convert.ToDateTime("09.03.2000")),
+                new Student(4, 2, "Student4", "Male", Convert.ToDateTime("15.04.2001")),
+                new Student(5, 3, "Student5", "Male", Convert.ToDateTime("03.03.2000"))
+            };
+
+        private static readonly List<Subject> _subjects =
+            new List<Subject>
+            {
+                new Subject(1, "Subject1"),
+                new Subject(2, "Subject2"),
+                new Subject(3, "Subject3"),
+                new Subject(4, "Subject4")
             };
 
         private static readonly object[] _examResultsLists =
@@ -51,26 +61,26 @@ namespace UniversityDLLTests
             {
                 new List<ExamResult>
                 {
-                    new ExamResult(1, _exams[0], _students[0], "8"),
-                    new ExamResult(2, _exams[0], _students[1], "3"),
-                    new ExamResult(3, _exams[0], _students[2], "2"),
-                    new ExamResult(4, _exams[0], _students[3], "7"),
-                    new ExamResult(5, _exams[0], _students[4], "9"),
-                    new ExamResult(6, _exams[1], _students[0], "7"),
-                    new ExamResult(7, _exams[1], _students[1], "2"),
-                    new ExamResult(8, _exams[1], _students[2], "3"),
-                    new ExamResult(9, _exams[1], _students[3], "7"),
-                    new ExamResult(10, _exams[1], _students[4], "9"),
-                    new ExamResult(11, _exams[2], _students[0], "7"),
-                    new ExamResult(12, _exams[2], _students[1], "3"),
-                    new ExamResult(13, _exams[2], _students[2], "3"),
-                    new ExamResult(14, _exams[2], _students[3], "2"),
-                    new ExamResult(15, _exams[2], _students[4], "9"),
-                    new ExamResult(16, _exams[3], _students[0], "7"),
-                    new ExamResult(17, _exams[3], _students[1], "9"),
-                    new ExamResult(18, _exams[3], _students[2], "2"),
-                    new ExamResult(19, _exams[3], _students[3], "7"),
-                    new ExamResult(20, _exams[3], _students[4], "8")
+                    new ExamResult(1, 1, 1, "8"),
+                    new ExamResult(2, 1, 2, "3"),
+                    new ExamResult(3, 1, 3, "2"),
+                    new ExamResult(4, 1, 4, "7"),
+                    new ExamResult(5, 1, 5, "9"),
+                    new ExamResult(6, 2, 1, "7"),
+                    new ExamResult(7, 2, 2, "2"),
+                    new ExamResult(8, 2, 3, "3"),
+                    new ExamResult(9, 2, 4, "7"),
+                    new ExamResult(10, 2, 5, "9"),
+                    new ExamResult(11, 3, 1, "7"),
+                    new ExamResult(12, 3, 2, "3"),
+                    new ExamResult(13, 3, 3, "3"),
+                    new ExamResult(14, 3, 4, "2"),
+                    new ExamResult(15, 3, 5, "9"),
+                    new ExamResult(16, 4, 1, "7"),
+                    new ExamResult(17, 4, 2, "9"),
+                    new ExamResult(18, 4, 3, "2"),
+                    new ExamResult(19, 4, 4, "7"),
+                    new ExamResult(20, 4, 5, "8")
                 }
             }
         };
@@ -102,8 +112,14 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
             //Act
             reportManager.SaveSessionResults(sessionName ,filePath, null);
             //Assert
@@ -122,9 +138,15 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
-            var sortField = typeof(ExamResult).GetProperty("Student");
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
+            var sortField = typeof(SessionResult).GetProperty("StudentName");
             //Act
             reportManager.SaveSessionResults(sessionName, filePath, sortField);
             //Assert
@@ -143,8 +165,14 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
             //Act
             reportManager.SaveSessionResultsSummary(sessionName, filePath, null);
             //Assert
@@ -163,9 +191,15 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
-            var sortField = typeof(SessionGroupSummary).GetProperty("AverageGrade");
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
+            var sortField = typeof(SessionGroupSummary).GetProperty("AverageGrade");
             //Act
             reportManager.SaveSessionResultsSummary(sessionName, filePath, sortField);
             //Assert
@@ -184,9 +218,15 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
-            var sortField = typeof(SessionGroupSummary).GetProperty("MinGrade");
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object); 
+            var sortField = typeof(SessionGroupSummary).GetProperty("MinGrade");
             //Act
             reportManager.SaveSessionResultsSummary(sessionName, filePath, sortField);
             //Assert
@@ -205,9 +245,15 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
-            var sortField = typeof(SessionGroupSummary).GetProperty("MaxGrade");
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
+            var sortField = typeof(SessionGroupSummary).GetProperty("MaxGrade");
             //Act
             reportManager.SaveSessionResultsSummary(sessionName, filePath, sortField);
             //Assert
@@ -225,8 +271,14 @@ namespace UniversityDLLTests
             var groupDAOCreatorMock = new Mock<DAOCreator<Group>>();
             var sessionDAOCreatorMock = new Mock<DAOCreator<Session>>();
             var studentDAOCreatorMock = new Mock<DAOCreator<Student>>();
+            var subjectDAOCreatorMock = new Mock<DAOCreator<Subject>>();
+            examDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_exams);
             examResultDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(examResults);
-            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object);
+            groupDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_groups);
+            sessionDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_sessions);
+            studentDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_students);
+            subjectDAOCreatorMock.Setup(e => e.Create(null).GetAll()).Returns(_subjects);
+            ReportManager reportManager = new ReportManager(null, examDAOCreatorMock.Object, examResultDAOCreatorMock.Object, groupDAOCreatorMock.Object, sessionDAOCreatorMock.Object, studentDAOCreatorMock.Object, subjectDAOCreatorMock.Object);
             //Act
             var resultStudents = reportManager.GetStudentToExpel(sessionName, null);
             //Assert

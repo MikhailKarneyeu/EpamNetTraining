@@ -7,23 +7,23 @@ namespace UniversityDAL.Entities
     public class ExamResult: IComparable
     {
         public int ExamResultID { get; set; }
-        public Exam Exam { get; set; }
-        public Student Student { get; set; }
+        public int ExamID { get; set; }
+        public int StudentID { get; set; }
         public string Grade { get; set; }
         public ExamResult()
         {
         }
-        public ExamResult(int examResultID, Exam exam, Student student, string grade)
+        public ExamResult(int examResultID, int examID, int studentID, string grade)
         {
             ExamResultID = examResultID;
-            Exam = exam;
-            Student = student;
+            ExamID = examID;
+            StudentID = studentID;
             Grade = grade;
         }
         public int CompareTo(object obj)
         {
             if (obj is ExamResult e)
-                return this.Exam.CompareTo(e.Exam);
+                return this.ExamID.CompareTo(e.ExamID);
             else
                 throw new Exception("Invalid type object.");
         }
@@ -43,7 +43,7 @@ namespace UniversityDAL.Entities
 
         public override string ToString()
         {
-            return $"{ExamResultID};{Exam};{Student};{Grade.Trim()}";
+            return $"{ExamResultID};{ExamID};{StudentID};{Grade.Trim()}";
         }
     }
 }
