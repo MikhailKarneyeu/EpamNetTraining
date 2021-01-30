@@ -9,6 +9,8 @@ namespace UniversityBLL
         public string ExamName { get; set; }
         public string GroupName { get; set; } 
         public string StudentName { get; set; }
+        public string SpecialtyName { get; set; }
+        public string TeacherName { get; set; }
         public string Grade { get; set; }
     }
 }

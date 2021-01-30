@@ -22,9 +22,10 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Groups (Name) VALUES (@name)";
+                sqlQuery = "INSERT INTO dbo.Groups (SpecialtyID, Name) VALUES (@specialtyID ,@name)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
+                    command.Parameters.AddWithValue("@specialtyID", entity.SpecialtyID);
                     command.Parameters.AddWithValue("@name", entity.Name);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();
@@ -72,7 +73,7 @@ namespace UniversityDAL.Services
                     {
                         while (reader.Read())
                         {
-                            groups.Add(new Group(reader.GetInt32(0), reader.GetString(1)));
+                            groups.Add(new Group(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2)));
                         }
                     }
                 }
@@ -97,7 +98,7 @@ namespace UniversityDAL.Services
                     {
                         while (reader.Read())
                         {
-                            group = new Group(reader.GetInt32(0), reader.GetString(1));
+                            group = new Group(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2));
                         }
                     }
                 }
@@ -114,10 +115,11 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "UPDATE dbo.Groups SET Name = @name WHERE GroupID = @groupID";
+                sqlQuery = "UPDATE dbo.Groups SET SpecialtyID = @specialtyID, Name = @name WHERE GroupID = @groupID";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@groupID", entity.GroupID);
+                    command.Parameters.AddWithValue("@specialtyID", entity.SpecialtyID);
                     command.Parameters.AddWithValue("@name", entity.Name);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();

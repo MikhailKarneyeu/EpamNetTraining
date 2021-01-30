@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data.Linq.Mapping;
 
 namespace UniversityDAL.Entities
 {
-    public class Group: IComparable
+    [Table(Name = "Teachers")]
+    public class Teacher: IComparable
     {
-        public int GroupID { get; set; }
-        public int SpecialtyID { get; set; }
+        [Column(Name = "TeacherID", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int TeacherID { get; set; }
+        [Column(Name = "Name")]
         public string Name { get; set; }
-        public Group()
+        public Teacher()
         { }
-        public Group(int groupID, int specialtyID, string name)
+        public Teacher(int teacherID,  string name)
         {
-            GroupID = groupID;
-            SpecialtyID = specialtyID;
+            TeacherID = teacherID;
             Name = name;
         }
         public int CompareTo(object obj)
         {
-            if (obj is Group e)
+            if (obj is Teacher e)
                 return this.Name.CompareTo(e.Name);
             else
                 throw new Exception("Invalid type object.");
         }
         public override bool Equals(object obj)
         {
-            if (typeof(Group) != obj.GetType())
+            if (typeof(Teacher) != obj.GetType())
                 return false;
             if (ToString().Equals(obj.ToString()))
                 return true;
@@ -35,12 +37,12 @@ namespace UniversityDAL.Entities
 
         public override int GetHashCode()
         {
-            return this.GroupID.GetHashCode() ^ this.SpecialtyID.GetHashCode() ^ this.Name.GetHashCode();
+            return base.GetHashCode();
         }
 
         public override string ToString()
         {
-            return $"{GroupID};{SpecialtyID};{Name.Trim()}";
+            return $"{TeacherID};{Name.Trim()}";
         }
     }
 }

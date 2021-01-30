@@ -16,18 +16,18 @@ namespace UniversityDALIntegrationTests.Tests
             {
                 new List<Exam>
                 {
-                    new Exam(1, 1, 1, Convert.ToDateTime("25.05.2019 00:00:00")),
-                    new Exam(2, 1, 2, Convert.ToDateTime("28.05.2019 00:00:00")),
-                    new Exam(3, 1, 3, Convert.ToDateTime("31.05.2019 00:00:00")),
-                    new Exam(4, 2, 4, Convert.ToDateTime("24.12.2019 00:00:00")),
-                    new Exam(5, 2, 5, Convert.ToDateTime("27.12.2019 00:00:00")),
-                    new Exam(6, 2, 6, Convert.ToDateTime("30.12.2019 00:00:00")),
-                    new Exam(7, 3, 1, Convert.ToDateTime("23.05.2020 00:00:00")),
-                    new Exam(8, 3, 2, Convert.ToDateTime("26.05.2020 00:00:00")),
-                    new Exam(9, 3, 3, Convert.ToDateTime("29.05.2020 00:00:00")),
-                    new Exam(10, 4, 4, Convert.ToDateTime("25.12.2020 00:00:00")),
-                    new Exam(11, 4, 5, Convert.ToDateTime("27.12.2020 00:00:00")),
-                    new Exam(12, 4, 6, Convert.ToDateTime("30.12.2020 00:00:00"))
+                    new Exam(1, 1, 1, 1, Convert.ToDateTime("25.05.2019 00:00:00")),
+                    new Exam(2, 1, 2, 1, Convert.ToDateTime("28.05.2019 00:00:00")),
+                    new Exam(3, 1, 3, 2, Convert.ToDateTime("31.05.2019 00:00:00")),
+                    new Exam(4, 2, 4, 2, Convert.ToDateTime("24.12.2019 00:00:00")),
+                    new Exam(5, 2, 5, 3, Convert.ToDateTime("27.12.2019 00:00:00")),
+                    new Exam(6, 2, 6, 3, Convert.ToDateTime("30.12.2019 00:00:00")),
+                    new Exam(7, 3, 1, 1, Convert.ToDateTime("23.05.2020 00:00:00")),
+                    new Exam(8, 3, 2, 1, Convert.ToDateTime("26.05.2020 00:00:00")),
+                    new Exam(9, 3, 3, 2, Convert.ToDateTime("29.05.2020 00:00:00")),
+                    new Exam(10, 4, 4, 2, Convert.ToDateTime("25.12.2020 00:00:00")),
+                    new Exam(11, 4, 5, 3, Convert.ToDateTime("27.12.2020 00:00:00")),
+                    new Exam(12, 4, 6, 3, Convert.ToDateTime("30.12.2020 00:00:00"))
                 }
             };
 
@@ -52,7 +52,7 @@ namespace UniversityDALIntegrationTests.Tests
         public void Create_ValidEntity_RecordCreated(List<Exam> exams)
         {
             //Arrange
-            var testExam = new Exam(13, 4, 6, Convert.ToDateTime("30.12.2020 08:00:00"));
+            var testExam = new Exam(13, 4, 6, 1, Convert.ToDateTime("30.12.2020 08:00:00"));
             var examDAO = new ExamDAOCreator().Create(_connectionString);
             //Act
             examDAO.Create(testExam);
@@ -65,7 +65,7 @@ namespace UniversityDALIntegrationTests.Tests
         public void DeleteById_CorrectId_RecordDeleted(List<Exam> exams)
         {
             //Arrange
-            var testExam = new Exam(13, 4, 6, Convert.ToDateTime("30.12.2020 08:00:00"));
+            var testExam = new Exam(13, 4, 6, 1, Convert.ToDateTime("30.12.2020 08:00:00"));
             var examDAO = new ExamDAOCreator().Create(_connectionString);
             examDAO.Create(testExam);
             var examList = examDAO.GetAll();
@@ -103,7 +103,7 @@ namespace UniversityDALIntegrationTests.Tests
         public void Update_ValidEntity_RecordUpdated(List<Exam> exams)
         {
             //Arrange
-            var testExam = new Exam(4, 2, 5, Convert.ToDateTime("30.05.2020 08:00:00"));
+            var testExam = new Exam(4, 2, 5, 2, Convert.ToDateTime("30.05.2020 08:00:00"));
             var examDAO = new ExamDAOCreator().Create(_connectionString);
             //Act
             examDAO.Update(testExam);

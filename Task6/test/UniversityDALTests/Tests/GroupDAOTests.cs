@@ -17,10 +17,11 @@ namespace UniversityDALIntegrationTests.Tests
             {
                 new List<Group>
                 {
-                    new Group(1, "Group1"),
-                    new Group(2, "Group2"),
-                    new Group(3, "Group3"),
-                    new Group(4, "Group4")
+                    new Group(1, 1, "Group1"),
+                    new Group(2, 1, "Group2"),
+                    new Group(3, 2, "Group3"),
+                    new Group(4, 2, "Group4"),
+                    new Group(5, 3, "Group5")
                 }
             };
     
@@ -45,7 +46,7 @@ namespace UniversityDALIntegrationTests.Tests
         [Test, TestCaseSource(nameof(_groupsList))]
         public void Create_ValidEntity_RecordCreated(List<Group> groups)
         {
-            var testGroup = new Group(4, "Group4");
+            var testGroup = new Group(6, 1, "Group6");
             var groupDAO = new GroupDAOCreator().Create(_connectionString);
             //Act
             groupDAO.Create(testGroup);
@@ -58,13 +59,13 @@ namespace UniversityDALIntegrationTests.Tests
         public void DeleteById_CorrectId_RecordDeleted(List<Group> groups)
         {
             //Arrange
-            var testGroup = new Group(5, "Group5");
+            var testGroup = new Group(6, 1, "Group6");
             var groupDAO = new GroupDAOCreator().Create(_connectionString);
             groupDAO.Create(testGroup);
             var groupList = groupDAO.GetAll();
             var groupExist = groupList.Contains(testGroup);
             //Act
-            var result = groupDAO.DeleteById(5);
+            var result = groupDAO.DeleteById(6);
             groupList = groupDAO.GetAll();
             //Assert
             Assert.IsTrue(result && groupExist && !groupList.Contains(testGroup));
@@ -96,7 +97,7 @@ namespace UniversityDALIntegrationTests.Tests
         public void Update_ValidEntity_RecordUpdated(List<Group> groups)
         {
             //Arrange
-            var testGroup = new Group(4, "NewName");
+            var testGroup = new Group(4, 2, "NewName");
             var groupDAO = new GroupDAOCreator().Create(_connectionString);
             //Act
             groupDAO.Update(testGroup);

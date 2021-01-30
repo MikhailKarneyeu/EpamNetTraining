@@ -22,11 +22,12 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "INSERT INTO dbo.Exams(SessionID, SubjectID, Date) VALUES (@sessionID, @subjectID, @date)";
+                sqlQuery = "INSERT INTO dbo.Exams(SessionID, SubjectID, TeacherID, Date) VALUES (@sessionID, @subjectID, @teacherID, @date)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@sessionID", entity.SessionID);
                     command.Parameters.AddWithValue("@subjectID", entity.SubjectID);
+                    command.Parameters.AddWithValue("@teacherID", entity.TeacherID);
                     command.Parameters.AddWithValue("@date", entity.Date);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();
@@ -67,14 +68,14 @@ namespace UniversityDAL.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sqlQuery = "SELECT ExamID, SessionID, SubjectID, Date FROM dbo.Exams";
+                string sqlQuery = "SELECT ExamID, SessionID, SubjectID, TeacherID, Date FROM dbo.Exams";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     using (reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            exams.Add(new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3)));
+                            exams.Add(new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4)));
                         }
                     }
                 }
@@ -91,7 +92,7 @@ namespace UniversityDAL.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                sqlQuery = "SELECT ExamID, SessionID, SubjectID, Date FROM dbo.Exams WHERE(ExamID = @id)";
+                sqlQuery = "SELECT ExamID, SessionID, SubjectID, TeacherID, Date FROM dbo.Exams WHERE(ExamID = @id)";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -99,7 +100,7 @@ namespace UniversityDAL.Services
                     {
                         while (reader.Read())
                         {
-                            exam = new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3));
+                            exam = new Exam(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4));
                         }
                     }
                 }
@@ -116,12 +117,13 @@ namespace UniversityDAL.Services
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                sqlQuery = "UPDATE dbo.Exams SET SessionID = @sessionID, SubjectID = @subjectID, Date = @date WHERE ExamID = @examID";
+                sqlQuery = "UPDATE dbo.Exams SET SessionID = @sessionID, SubjectID = @subjectID, TeacherID = @teacherID, Date = @date WHERE ExamID = @examID";
                 using (command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@examID", entity.ExamID);
                     command.Parameters.AddWithValue("@sessionID", entity.SessionID);
                     command.Parameters.AddWithValue("@subjectID", entity.SubjectID);
+                    command.Parameters.AddWithValue("@teacherID", entity.TeacherID);
                     command.Parameters.AddWithValue("@date", entity.Date);
                     adapter.InsertCommand = command;
                     int rows = adapter.InsertCommand.ExecuteNonQuery();

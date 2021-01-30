@@ -9,15 +9,17 @@ namespace UniversityDAL.Entities
         public int ExamID { get; set; }
         public int SessionID { get; set; }
         public int SubjectID { get; set; }
+        public int TeacherID { get; set; }
         public DateTime Date { get; set; }
         public Exam()
         {
         }
-        public Exam(int examID, int sessionID, int subjectID, DateTime date)
+        public Exam(int examID, int sessionID, int subjectID, int teacherID, DateTime date)
         {
             ExamID = examID;
             SessionID = sessionID;
             SubjectID = subjectID;
+            TeacherID = teacherID;
             Date = date;
         }
 
